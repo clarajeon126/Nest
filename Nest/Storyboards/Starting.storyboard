@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="i79-EZ-lj2">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hdh-kl-wIe" customClass="LoginViewController" customModule="Nest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zNE-LU-KUa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-dI-r9N">
+                                <rect key="frame" x="62" y="381" width="290" height="134"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMD-1F-PsT" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="57"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SV0-zR-mB2">
+                                        <rect key="frame" x="0.0" y="77" width="290" height="57"/>
+                                        <color key="backgroundColor" red="1" green="0.62352941179999999" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2ce-p5-NZj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c3O-dI-r9N" firstAttribute="height" secondItem="zNE-LU-KUa" secondAttribute="height" multiplier="0.15" id="Dgv-zP-kAE"/>
+                            <constraint firstItem="c3O-dI-r9N" firstAttribute="width" secondItem="zNE-LU-KUa" secondAttribute="width" multiplier="0.7" id="M1t-sE-frG"/>
+                            <constraint firstItem="c3O-dI-r9N" firstAttribute="centerY" secondItem="zNE-LU-KUa" secondAttribute="centerY" id="aRl-cN-Iaw"/>
+                            <constraint firstItem="c3O-dI-r9N" firstAttribute="centerX" secondItem="zNE-LU-KUa" secondAttribute="centerX" id="i3T-9i-Via"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="NiG-cB-dgf" kind="presentation" identifier="loginToMain" modalPresentationStyle="fullScreen" id="pz9-a4-R7V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c3B-yB-4yz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16" y="155"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="E4e-ay-gVA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="NiG-cB-dgf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xKN-TY-DMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

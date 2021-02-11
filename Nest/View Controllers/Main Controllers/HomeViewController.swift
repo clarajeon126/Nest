@@ -103,7 +103,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         descriptionInt = indexPath.row
-        performSegue(withIdentifier: "goToDescription", sender: self)
+        performSegue(withIdentifier: "gotoDescription", sender: self)
     }
 
     private func handleNotAuthenticated() {

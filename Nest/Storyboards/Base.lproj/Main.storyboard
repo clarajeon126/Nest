@@ -124,7 +124,7 @@
             <objects>
                 <viewController id="2LM-Mi-0Rh" customClass="CheckWorkViewController" customModule="Nest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IKk-WX-STB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="hello filler text ghello " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-57-gnS">
@@ -156,7 +156,7 @@
                                 </state>
                             </button>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FmE-VP-Kfz">
-                                <rect key="frame" x="0.0" y="825" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="771" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.1019607843" green="0.32549019610000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <items/>
@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al3-nZ-15w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="819"/>
+            <point key="canvasLocation" x="177" y="1106"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="EzR-Yo-Z0r">
@@ -315,6 +315,7 @@
                     </view>
                     <connections>
                         <outlet property="homeTableView" destination="K2w-G6-rT7" id="uWl-vu-miy"/>
+                        <segue destination="2LM-Mi-0Rh" kind="show" identifier="gotoDescription" id="0BE-rN-nUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-S8-LeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -151,7 +151,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypy-g5-MJf">
-                                <rect key="frame" x="47" y="288" width="307" height="40"/>
+                                <rect key="frame" x="47" y="312" width="307" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Look for inspiration on #hydrating">
@@ -168,19 +168,20 @@
                                 <color key="selectedImageTintColor" red="0.1019607843" green="0.32549019610000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgp-H5-6fW">
-                                <rect key="frame" x="139" y="360" width="123" height="22"/>
+                                <rect key="frame" x="139" y="378" width="122" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.1019607843" green="0.32549019610000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Take picture" image="camera.fill" catalog="system"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Take picture" image="camera.fill" catalog="system">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <action selector="camClicked:" destination="2LM-Mi-0Rh" eventType="touchUpInside" id="Ejb-9N-pvE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drink water 🚰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-OG-7j3">
-                                <rect key="frame" x="34" y="51" width="347" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink water 🚰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-OG-7j3">
+                                <rect key="frame" x="10" y="30" width="394" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-EL-eYa">
@@ -202,17 +203,25 @@
                                     <action selector="checkClicked:" destination="2LM-Mi-0Rh" eventType="touchUpInside" id="HKj-qR-xJo"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="hello filler text ghello " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-57-gnS">
-                                <rect key="frame" x="47" y="108" width="307" height="163"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description of the task, etc " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-57-gnS">
+                                <rect key="frame" x="10" y="108" width="394" height="210.5"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9rV-ZZ-u0J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8mn-OG-7j3" firstAttribute="top" secondItem="9rV-ZZ-u0J" secondAttribute="top" constant="30" id="2hj-Sq-ixV"/>
+                            <constraint firstItem="wnd-57-gnS" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="10" id="RKt-hn-D6j"/>
+                            <constraint firstItem="8mn-OG-7j3" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="Tzq-LC-6X0"/>
+                            <constraint firstItem="wnd-57-gnS" firstAttribute="height" secondItem="IKk-WX-STB" secondAttribute="height" multiplier="0.25" id="U2u-eb-0W0"/>
+                            <constraint firstAttribute="trailing" secondItem="wnd-57-gnS" secondAttribute="trailing" constant="10" id="czf-vv-0BC"/>
+                            <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="8mn-OG-7j3" secondAttribute="trailing" constant="10" id="tkB-fJ-89n"/>
+                            <constraint firstItem="wnd-57-gnS" firstAttribute="top" secondItem="8mn-OG-7j3" secondAttribute="bottom" constant="30" id="ubU-Xl-l6C"/>
+                            <constraint firstItem="8mn-OG-7j3" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="10" id="xDI-e6-7YE"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="8R1-je-Jug"/>
                     <navigationItem key="navigationItem" title="Check in" id="2e1-or-Agv">
@@ -227,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al3-nZ-15w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="1106"/>
+            <point key="canvasLocation" x="176.81159420289856" y="1105.5803571428571"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="EzR-Yo-Z0r">
@@ -304,7 +313,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PbG-gt-iOn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eRb-Vw-oxx" firstAttribute="top" secondItem="hpU-Wt-C7a" secondAttribute="bottom" constant="23" id="2oV-ya-yB5"/>
                             <constraint firstItem="AW7-NJ-AUK" firstAttribute="bottom" secondItem="PbG-gt-iOn" secondAttribute="bottom" id="6TS-qo-NyE"/>
@@ -424,6 +433,9 @@
         <image name="nestlogotransparent" width="96" height="96"/>
         <image name="profile" width="500" height="500"/>
         <image name="thehub" width="500" height="500"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

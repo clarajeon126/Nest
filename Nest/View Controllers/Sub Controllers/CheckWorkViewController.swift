@@ -24,6 +24,11 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.white, UIColor.systemPink]
+        view.layer.addSublayer(gradientLayer)
+        
         pageTitle.text = challengeArray[descriptionInt].titleOfChallenge
         
         textView.isEditable = false

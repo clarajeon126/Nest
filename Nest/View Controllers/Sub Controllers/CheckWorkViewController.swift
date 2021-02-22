@@ -15,7 +15,8 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
     
     @IBOutlet weak var pageTitle: UILabel!
     @IBOutlet weak var textView: UITextView!
-    var challengeName = " water bottle "
+    var challengeName = challengeArray[descriptionInt].keywords
+    //change to array at thing
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -33,7 +34,8 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
         
         textView.isEditable = false
         
-        textView.text = challengeArray[descriptionInt].descriptionOfChallenge
+        textView.text = "\(challengeArray[descriptionInt].descriptionOfChallenge)"
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -51,7 +53,7 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
             if let prediction = try? mobilenet.prediction(image: imagebuffer){
                 print("hello")
                 print(" \(prediction.classLabel) ")
-                resultLabel.text =  " \(prediction.classLabel) "
+                resultLabel!.text =  "\(prediction.classLabel)"
             }
         }
     }
@@ -124,37 +126,46 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
     @IBAction func checkClicked(_ sender: Any) {
         print("hello there")
         
-        if resultLabel.text == challengeName {
-            print("Yes")
+        var resultsText = resultLabel!.text
+//        if resultsText!.contains(challengeName) {
+        let word = resultsText!.components(separatedBy: " ").first
+        print(word!)
+
+
+        if challengeName.contains(word!) {
+
+            print("poggers!! ")
             let alert = UIAlertController(title: "Congrats on completing your task!", message: "You have gained 10 points for this task!", preferredStyle: .alert)
-            
+        
             let ok = UIAlertAction(title: "Save for myself", style: .default, handler: { action in
-             
+
                 if self.imageView.image != nil {
-                    
+
                     if let imageData = self.imageView.image?.pngData() {
 //save image
                     }
-                 
+
                 }
             })
-            
+
             alert.addAction(ok)
-            
+
             let post = UIAlertAction(title: "Post on The Hub to inspire others!", style: .default, handler: { action in
                 // what happens when they post it to hub- firebase
-                
-                
+
+
             })
             alert.addAction(post)
-            
+
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
             })
             alert.addAction(cancel)
             DispatchQueue.main.async(execute: {
                 self.present(alert, animated: true)
             })
-        } else{
+
+        } else {
+        print("nope send error message")
             print("nope")
 
             let alert = UIAlertController(title: "Whoops", message: "Please take another picture!.", preferredStyle: UIAlertController.Style.alert)
@@ -162,7 +173,7 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
 
             self.present(alert, animated: true, completion: nil)
+
         }
-    }
-    
+}
 }

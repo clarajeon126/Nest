@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         homeTableView.register(UINib.init(nibName: challengeTableCellId, bundle: nil), forCellReuseIdentifier: challengeTableCellId)
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        for x in 0...2{
+        for x in 0...6{
             //takes random item from array and loads up different things onto cell when the page loads
             // make segue to description vc 
             let challenge = challengeTableCell()
@@ -76,7 +76,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

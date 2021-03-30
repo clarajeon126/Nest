@@ -14,6 +14,7 @@ public class DatabaseManager {
     
     private let database = Database.database().reference()
     
+    private let postDatabase = Database.database().reference().child("posts")
     //inserting user into database
     public func insertNewUser(firstName: String, lastName: String, profilePhotoUrl: URL, completion: @escaping (Bool) -> Void){
         
@@ -41,4 +42,48 @@ public class DatabaseManager {
             }
         }
     }
+    
+    public func addPost(caption: String, image: UIImage, hashtag: String){
+        guard let userUid = UserProfile.currentUserProfile?.basicProfileInfo.uid else {
+            return
+        }
+        
+        let postChildRef = postDatabase.childByAutoId()
+        let keyOfPost = postChildRef.key
+        
+        StorageManager.shared.uploadPostPhoto(image, withAutoId: keyOfPost) { (url) in
+            let postObj = ["author": ["uid": ]]
+        }
+        
+    }
+    
+    //query for opportunities by timestamp
+    var queryPostsByTime: DatabaseQuery {
+        var postsQueryRef: DatabaseQuery
+        
+        postsQueryRef = postDatabase.queryOrdered(byChild: "timestamp")
+        return postsQueryRef
+    }
+    
+    public func arrayOfPostByTime(completion: @escaping (_ posts: [Post])->()){
+        queryPostsByTime.observeSingleEvent(of: .value) { (snapshot) in
+            var posts = [Post]()
+            var numOfChildThroughFor = 0
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot {
+                    if let data = childSnapshot.value as? [String: Any]{
+                        Post.parse(childSnapshot.key, data) { (post) in
+                            numOfChildThroughFor += 1
+                            posts.insert(post, at: 0)
+                            if numOfChildThroughFor == snapshot.childrenCount {
+                                return completion(posts)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }

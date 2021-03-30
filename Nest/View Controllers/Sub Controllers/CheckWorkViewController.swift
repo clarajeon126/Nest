@@ -14,7 +14,8 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
     let mobilenet = MobileNetV2()
     
     @IBOutlet weak var pageTitle: UILabel!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     var challengeName = challengeArray[descriptionInt].keywords
     //change to array at thing
     @IBOutlet weak var imageView: UIImageView!
@@ -32,9 +33,7 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
         
         pageTitle.text = challengeArray[descriptionInt].titleOfChallenge
         
-        textView.isEditable = false
-        
-        textView.text = "\(challengeArray[descriptionInt].descriptionOfChallenge)"
+        descriptionLabel.text = "\(challengeArray[descriptionInt].descriptionOfChallenge)"
 
     }
     

@@ -73,4 +73,29 @@ public class StorageManager {
             }
         }
     }
+    
+    
+    //uploading post photo
+    public func uploadPostPhoto(_ image: UIImage, withAutoId: String, completion: @escaping (_ url: URL?)->()){
+        let postRef = storage.child("PostPhotos")
+        let postPhotoRef = postRef.child(withAutoId)
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.75) else {
+            return
+        }
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        postPhotoRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            if error == nil, metaData != nil {
+                postPhotoRef.downloadURL { (url, error) in
+                    completion(url)
+                }
+            } else {
+                //failed
+                completion(nil)
+            }
+        }
+    }
 }

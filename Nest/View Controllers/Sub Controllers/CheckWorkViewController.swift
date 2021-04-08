@@ -24,9 +24,23 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
     
     @IBOutlet weak var resultLabel: UILabel!
     */
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var inspirationButton: UIButton!
+    @IBOutlet weak var takeAPicButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.text = challengeInQuestion.title
+        descriptionLabel.text = challengeInQuestion.description
+        
+        
+        //setting buttons as rounded corners
+        inspirationButton.layer.cornerRadius = 15
+        takeAPicButton.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
         /*
         let gradientLayer = CAGradientLayer()
@@ -38,6 +52,12 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
         
         descriptionLabel.text = "\(challengeArray[descriptionInt].descriptionOfChallenge)"*/
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
     }
     /*
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

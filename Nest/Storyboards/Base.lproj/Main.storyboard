@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRy-xK-cWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="117"/>
+            <point key="canvasLocation" x="1032" y="117"/>
         </scene>
         <!--Add Post View Controller-->
         <scene sceneID="Lcs-D8-VOn">
@@ -89,8 +89,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption 📝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3c-xz-jw8">
-                                <rect key="frame" x="30" y="40" width="201" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Caption 📝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3c-xz-jw8">
+                                <rect key="frame" x="30" y="40" width="221" height="47"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4k9-tW-lHv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626.08695652173913" y="1105.5803571428571"/>
+            <point key="canvasLocation" x="-626" y="1021"/>
         </scene>
         <!--Check in-->
         <scene sceneID="o4l-jc-9Um">
@@ -192,13 +192,6 @@
                                     <constraint firstAttribute="width" secondItem="9ia-IT-Vcc" secondAttribute="height" multiplier="1.4" id="4VM-pv-X7L"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-nu-VzN">
-                                <rect key="frame" x="107" y="782" width="186" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.96862745100000003" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink water 🚰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-OG-7j3">
                                 <rect key="frame" x="10" y="30" width="394" height="48"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="40"/>
@@ -257,20 +250,21 @@
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="10" id="xDI-e6-7YE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="8R1-je-Jug"/>
                     <navigationItem key="navigationItem" title="Check in" id="2e1-or-Agv">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="jYe-rY-LLo"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionLabel" destination="jof-JH-JEF" id="yTP-hn-arV"/>
-                        <outlet property="pageTitle" destination="8mn-OG-7j3" id="Xm7-Hz-nX0"/>
-                        <outlet property="resultLabel" destination="0RT-nu-VzN" id="zG4-mI-pZd"/>
+                        <outlet property="descriptionLabel" destination="jof-JH-JEF" id="etZ-kh-jcC"/>
+                        <outlet property="imageView" destination="9ia-IT-Vcc" id="q77-d4-OqX"/>
+                        <outlet property="inspirationButton" destination="ypy-g5-MJf" id="xyt-lq-T2I"/>
+                        <outlet property="takeAPicButton" destination="m3k-B5-eHX" id="0Fi-gf-sjM"/>
+                        <outlet property="titleLabel" destination="8mn-OG-7j3" id="gts-xx-nLC"/>
                         <segue destination="MtI-HJ-SwH" kind="presentation" id="IJo-5i-ahJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al3-nZ-15w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176.81159420289856" y="1105.5803571428571"/>
+            <point key="canvasLocation" x="177" y="1021"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="EzR-Yo-Z0r">
@@ -372,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-S8-LeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="117"/>
+            <point key="canvasLocation" x="209" y="117"/>
         </scene>
         <!--Hub View Controller-->
         <scene sceneID="exN-Sb-zeF">

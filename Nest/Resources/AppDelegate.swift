@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
+public var challengeArray: [Challenge] = []
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //for google sign in
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
         
         return true
     }
@@ -70,8 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 
                 StorageManager.shared.uploadGoogleUrlProfilePhoto(googleProfilePhotoUrl!) { (url) in
                     profilePhotoUrl = url
-                    
+                    print("success in uploading google prof pic")
                     DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
+                        print("success signing in")
                     }
                 }
             }
@@ -82,11 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 
                 StorageManager.shared.uploadGeneralProfilePhoto(defaultProfilePhoto) { (url) in
                     profilePhotoUrl = url
-                    
+                    print("success in uploading prof pic")
                     DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
-                        
+                        print("success signing in")
                     }
-                    
                 }
             }
 

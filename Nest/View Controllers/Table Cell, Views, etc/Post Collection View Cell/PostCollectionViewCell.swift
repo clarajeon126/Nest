@@ -28,7 +28,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     
     //set values in the post cell
-    func set(post: Post){
+    /*func set(post: Post){
         self.post = post
         
         if post.isAnonymous {
@@ -77,6 +77,6 @@ class PostCollectionViewCell: UICollectionViewCell {
         //setting time
         timeLabel.text = post.createdAt.calenderTimeSinceNow()
         
-    }
+    }*/
 
 }

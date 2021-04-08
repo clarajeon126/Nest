@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Hero-Light.otf">
+        <array key="Hero-Light.ttf">
             <string>Hero-Light</string>
         </array>
         <array key="Hero-Regular.ttf">
@@ -186,94 +186,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rla-Vf-tfG">
-                                <rect key="frame" x="20.5" y="213" width="373" height="266"/>
-                                <color key="backgroundColor" red="0.79607843137254897" green="0.95294117647058818" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ia-IT-Vcc">
+                                <rect key="frame" x="20" y="356" width="324" height="231.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="rla-Vf-tfG" secondAttribute="height" multiplier="1.4" id="uww-ul-aU0"/>
+                                    <constraint firstAttribute="width" secondItem="9ia-IT-Vcc" secondAttribute="height" multiplier="1.4" id="4VM-pv-X7L"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-nu-VzN">
-                                <rect key="frame" x="107" y="494" width="186" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-nu-VzN">
+                                <rect key="frame" x="107" y="782" width="186" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96862745100000003" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypy-g5-MJf">
-                                <rect key="frame" x="61" y="142" width="292" height="41"/>
-                                <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
-                                <state key="normal" title="Look for inspiration on #hydrating">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink water 🚰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-OG-7j3">
                                 <rect key="frame" x="10" y="30" width="394" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="40"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-EL-eYa">
-                                <rect key="frame" x="83" y="529.5" width="248" height="36"/>
-                                <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Submit to complete the challenge!">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" metaFont="system" size="20"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="checkClicked:" destination="2LM-Mi-0Rh" eventType="touchUpInside" id="HKj-qR-xJo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgp-H5-6fW">
-                                <rect key="frame" x="146" y="335" width="122" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Take picture" image="camera.fill" catalog="system">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="camClicked:" destination="2LM-Mi-0Rh" eventType="touchUpInside" id="Ejb-9N-pvE"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jof-JH-JEF">
-                                <rect key="frame" x="20" y="98" width="374" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jof-JH-JEF">
+                                <rect key="frame" x="70" y="98" width="324" height="288"/>
+                                <color key="backgroundColor" red="0.79607843140000001" green="0.95294117649999999" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Journaling can help with personal growth and development. Recording your thoughts can help with learning about your own behaviors and moods. Many people also journal because it helps keep your brain in tip-top shape. Not only does it boost memory and comprehension, but it also increases working memory capacity!</string>
+                                <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yJX-Jd-ONo">
+                                <rect key="frame" x="41.5" y="607.5" width="331" height="97"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypy-g5-MJf">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="41"/>
+                                        <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Look for inspiration on #hydrating">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3k-B5-eHX">
+                                        <rect key="frame" x="0.0" y="56" width="331" height="41"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Take a Pic to Submit 😁 "/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9rV-ZZ-u0J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iCS-EL-eYa" firstAttribute="width" secondItem="IKk-WX-STB" secondAttribute="width" multiplier="0.6" id="1uB-eB-R7Q"/>
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="top" secondItem="9rV-ZZ-u0J" secondAttribute="top" constant="30" id="2hj-Sq-ixV"/>
-                            <constraint firstItem="jof-JH-JEF" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="20" id="6Qx-sD-sj2"/>
-                            <constraint firstItem="Jgp-H5-6fW" firstAttribute="centerX" secondItem="rla-Vf-tfG" secondAttribute="centerX" id="7F8-wz-3OZ"/>
-                            <constraint firstItem="ypy-g5-MJf" firstAttribute="top" secondItem="jof-JH-JEF" secondAttribute="bottom" constant="20" id="JKj-Yl-3FK"/>
+                            <constraint firstItem="yJX-Jd-ONo" firstAttribute="width" secondItem="IKk-WX-STB" secondAttribute="width" multiplier="0.8" id="76F-f5-nZL"/>
+                            <constraint firstItem="9ia-IT-Vcc" firstAttribute="top" secondItem="jof-JH-JEF" secondAttribute="bottom" constant="-30" id="KAj-xE-iaq"/>
+                            <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="9ia-IT-Vcc" secondAttribute="trailing" constant="70" id="Laq-5R-8lI"/>
                             <constraint firstItem="jof-JH-JEF" firstAttribute="top" secondItem="8mn-OG-7j3" secondAttribute="bottom" constant="20" id="LwA-wA-x7Q"/>
-                            <constraint firstItem="0RT-nu-VzN" firstAttribute="top" secondItem="rla-Vf-tfG" secondAttribute="bottom" constant="15" id="Pqm-rw-kEA"/>
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="Tzq-LC-6X0"/>
-                            <constraint firstItem="rla-Vf-tfG" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="W5J-x8-fJg"/>
-                            <constraint firstItem="Jgp-H5-6fW" firstAttribute="centerY" secondItem="rla-Vf-tfG" secondAttribute="centerY" id="YoY-Kk-UNe"/>
-                            <constraint firstItem="rla-Vf-tfG" firstAttribute="top" secondItem="ypy-g5-MJf" secondAttribute="bottom" constant="30" id="c3V-Jb-3Lt"/>
-                            <constraint firstItem="iCS-EL-eYa" firstAttribute="top" secondItem="0RT-nu-VzN" secondAttribute="bottom" constant="15" id="fM8-oc-Jn1"/>
+                            <constraint firstItem="yJX-Jd-ONo" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="UN1-WM-Nqf"/>
+                            <constraint firstItem="9ia-IT-Vcc" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="20" id="ayY-KA-q5M"/>
                             <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="jof-JH-JEF" secondAttribute="trailing" constant="20" id="ff1-bP-ob4"/>
-                            <constraint firstItem="iCS-EL-eYa" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="sHS-af-Kwb"/>
-                            <constraint firstItem="ypy-g5-MJf" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="sXE-mq-Huy"/>
-                            <constraint firstItem="rla-Vf-tfG" firstAttribute="width" secondItem="IKk-WX-STB" secondAttribute="width" multiplier="0.9" id="tIn-bG-JWp"/>
+                            <constraint firstItem="jof-JH-JEF" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="70" id="i2p-WC-3cq"/>
                             <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="8mn-OG-7j3" secondAttribute="trailing" constant="10" id="tkB-fJ-89n"/>
+                            <constraint firstItem="yJX-Jd-ONo" firstAttribute="top" secondItem="9ia-IT-Vcc" secondAttribute="bottom" constant="20" id="vgf-dC-eyf"/>
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="10" id="xDI-e6-7YE"/>
                         </constraints>
                     </view>
@@ -283,7 +263,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="jof-JH-JEF" id="yTP-hn-arV"/>
-                        <outlet property="imageView" destination="rla-Vf-tfG" id="1i0-jL-Mt9"/>
                         <outlet property="pageTitle" destination="8mn-OG-7j3" id="Xm7-Hz-nX0"/>
                         <outlet property="resultLabel" destination="0RT-nu-VzN" id="zG4-mI-pZd"/>
                         <segue destination="MtI-HJ-SwH" kind="presentation" id="IJo-5i-ahJ"/>
@@ -291,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al3-nZ-15w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="1106"/>
+            <point key="canvasLocation" x="176.81159420289856" y="1105.5803571428571"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="EzR-Yo-Z0r">
@@ -308,18 +287,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning Clara,☺️" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpU-Wt-C7a">
                                 <rect key="frame" x="30" y="74" width="354" height="120"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="50"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" red="0.96862745100000003" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your challenges of the day are..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRb-Vw-oxx">
                                 <rect key="frame" x="55" y="217" width="329" height="72"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="30"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2w-G6-rT7">
                                 <rect key="frame" x="30" y="329" width="354" height="413"/>
-                                <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="c4n-u9-ahK">
                                         <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
@@ -368,7 +345,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PbG-gt-iOn"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eRb-Vw-oxx" firstAttribute="top" secondItem="hpU-Wt-C7a" secondAttribute="bottom" constant="23" id="2oV-ya-yB5"/>
                             <constraint firstItem="AW7-NJ-AUK" firstAttribute="bottom" secondItem="PbG-gt-iOn" secondAttribute="bottom" id="6TS-qo-NyE"/>
@@ -390,7 +367,7 @@
                     </view>
                     <connections>
                         <outlet property="homeTableView" destination="K2w-G6-rT7" id="uWl-vu-miy"/>
-                        <segue destination="2LM-Mi-0Rh" kind="show" identifier="gotoDescription" id="0BE-rN-nUu"/>
+                        <segue destination="2LM-Mi-0Rh" kind="show" identifier="goToDescription" id="0BE-rN-nUu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-S8-LeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -493,7 +470,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="nestlogotransparent" width="96" height="96"/>
         <image name="profile" width="500" height="500"/>
         <image name="thehub" width="500" height="500"/>

@@ -17,7 +17,7 @@ class challengeCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        viewBackground.layer.cornerRadius = 15
+        viewBackground.layer.cornerRadius = 30
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

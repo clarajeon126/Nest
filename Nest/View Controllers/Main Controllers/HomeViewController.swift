@@ -12,50 +12,123 @@ import GoogleSignIn
 
 var descriptionInt = 0
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class HomeViewController: UIViewController {
     
     let challengeTableCellId = "challengeCell"
-    var challenges = [challengeTableCell]()
-//    var randomInt = Int.random(in: 0...1)
+    
+    
+    //var randomInt = Int.random(in: 0...1)
 
+    var personalChallenges:[Challenge] = []
     @IBOutlet weak var homeTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         homeTableView.register(UINib.init(nibName: challengeTableCellId, bundle: nil), forCellReuseIdentifier: challengeTableCellId)
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        for x in 0...6{
-            //takes random item from array and loads up different things onto cell when the page loads
-            // make segue to description vc 
-            let challenge = challengeTableCell()
-            challenge?.mainTitle = challengeArray[x].titleOfChallenge
-            challenge?.emoji = challengeArray[x].emojiOfChallenge
-            challenge?.points = challengeArray[x].pointValue
-            challenges.append(challenge!)
+        homeTableView.separatorColor = .clear
         
-        }
-        homeTableView.reloadData()
+        
+        
+        //reloadHomeTableData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         handleNotAuthenticated()
+        
     }
     
-    //right side swipe actions
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
+
+    //handle not authenticated to lead to login screen
+    private func handleNotAuthenticated() {
+        
+        if Auth.auth().currentUser == nil {
+            print("inside")
+            let startingStoryBoard = UIStoryboard(name: "Starting", bundle: nil)
+            let loginVC = startingStoryBoard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
+            loginVC.modalPresentationStyle = .fullScreen
+            present(loginVC, animated: false, completion: nil)
+        }
+        else {
+            print("elseobserve\(Auth.auth().currentUser!.uid)")
+            
+            //update user profile to be the current one
+            DatabaseManager.shared.observeUserProfile(Auth.auth().currentUser!.uid) { (userProfile) in
+                print(userProfile)
+                UserProfile.currentUserProfile = userProfile
+                
+                //after that return the challenege array
+                DatabaseManager.shared.returnChallengeArray { (challenges) in
+                    print("received array from firebase")
+                    challengeArray = challenges
+                    self.reloadHomeTableData()
+                }
+            }
+            
+        }
+        print("passed")
+    }
+    
+    func reloadHomeTableData(){
+        //setting up the personal challenge array
+        let challengeArrayStored = UserProfile.currentUserProfile?.personalChallenges
+        print(UserProfile.currentUserProfile?.firstName)
+        print("outisde reload home table")
+        print("inside here")
+        print(challengeArrayStored)
+
+        for x in 0...challengeArrayStored!.count - 1 {
+            let num = challengeArrayStored![x]
+            
+            let challengeToBeKept = challengeArray[num]
+            
+            if personalChallenges.count < 3 {
+                personalChallenges.append(challengeToBeKept)
+            }
+            else {
+                personalChallenges[x] = challengeToBeKept
+            }
+        }
+        print(personalChallenges)
+        homeTableView.reloadData()
+    }
+    
+}
+
+//all things regarding the table view
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //right side swipe actions, replace cell
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Replace??") { (action, view, completionHandler) in
+            
+            //replace a single Challenge
+            print("swipe action activated!")
+            UserProfile.currentUserProfile?.replaceASingleChallenge(index: indexPath.row)
+            self.reloadHomeTableData()
+            completionHandler(true)
+        }
+        
+        action.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    //left swipe action, open camerea
+    /*func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
            //replace/ trash action
-           let ReplaceAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+           let replaceAction = UIContextualAction(style: .normal, title:  "Trash", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                print("Update action ...")
                success(true)
            })
-           ReplaceAction.backgroundColor = .red
+           replaceAction.backgroundColor = .red
 
-           return UISwipeActionsConfiguration(actions: [ReplaceAction])
-    }
+           return UISwipeActionsConfiguration(actions: [replaceAction])
+    }*/
     
-    func tableView(_ tableView: UITableView,
+    /*func tableView(_ tableView: UITableView,
                       leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?{
 
         let submitCameraAction = UIContextualAction(style: .normal, title:  "Done! Photo timee", handler: { [self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
@@ -66,8 +139,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
            submitCameraAction.backgroundColor = .green
            return UISwipeActionsConfiguration(actions: [submitCameraAction])
 
-    }
+    }*/
     
+    //set height of the cell as third of the table view
     func tableView(_ tatbleView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tableViewHeight = homeTableView.frame.height
         return tableViewHeight/3
@@ -78,43 +152,57 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 3
     }
     
+    //set cell with title, points, emoji and stuff
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: challengeTableCellId, for: indexPath) as! challengeCell
         
         cell.selectionStyle = .none
-        
-        let challenge = challenges[indexPath.row]
-        
-        cell.mainTitle.text = challenge.mainTitle
-        
-        cell.emojiLabel.text = challenge.emoji
-        
-        if indexPath.row == 0 {
-            cell.viewBackground.backgroundColor = UIColor(red: 255/255, green: 191/255, blue: 105/255, alpha: 1.00)
+    
+        if personalChallenges.count < 1 {
+            return cell
         }
-        else if indexPath.row == 1{
-            cell.viewBackground.backgroundColor = UIColor(red: 252/255, green: 175/255, blue: 71/255, alpha: 1.00)
-            //cell.mainTitle.textColor = UIColor(red: 95/255, green: 111/255, blue: 110/255, alpha: 1.00)
+        else {
+            let challenge = personalChallenges[indexPath.row]
+            
+            print(challenge.title)
+            cell.mainTitle.text = challenge.title
+            cell.pointsLabel.text = "\(challenge.point) pts"
+            cell.emojiLabel.text = challenge.emoji
+            
+            if indexPath.row == 0 {
+                cell.viewBackground.backgroundColor = brightCyanColor
+            }
+            else if indexPath.row == 1{
+                cell.viewBackground.backgroundColor = lightOrangeColor
+                //cell.mainTitle.textColor = UIColor(red: 95/255, green: 111/255, blue: 110/255, alpha: 1.00)
+            }
+            else {
+                cell.viewBackground.backgroundColor = lightCyanColor
+            }
+            
+            return cell
         }
-        return cell
     }
     
+    //when cell selected segue and update vc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         descriptionInt = indexPath.row
-        performSegue(withIdentifier: "gotoDescription", sender: self)
+        performSegue(withIdentifier: "goToDescription", sender: self)
     }
-
-    private func handleNotAuthenticated() {
-        if Auth.auth().currentUser == nil {
-            let startingStoryBoard = UIStoryboard(name: "Starting", bundle: nil)
-            let loginVC = startingStoryBoard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
-            loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: false, completion: nil)
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //when the segue is going to the description
+        if segue.identifier == "goToDescription" {
+            let indexPath = homeTableView.indexPathForSelectedRow
+            
+            let descriptionVC = segue.destination as! CheckWorkViewController
+            
+            descriptionVC.challengeInQuestion = personalChallenges[indexPath!.row]
         }
     }
-
 }

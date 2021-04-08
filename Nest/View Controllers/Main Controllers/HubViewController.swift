@@ -19,8 +19,8 @@ class HubViewController: UIViewController {
         super.viewDidLoad()
         
         hubCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "postCell")
-        hubCollectionView.dataSource = self
-        hubCollectionView.delegate = self
+        //hubCollectionView.dataSource = self
+        //hubCollectionView.delegate = self
         hubCollectionView.collectionViewLayout = HubViewController.createLayout()
         
         refreshControl = UIRefreshControl()
@@ -38,7 +38,7 @@ class HubViewController: UIViewController {
     
     @objc func reloadCollectionViewData(){
         DatabaseManager.shared.arrayOfPostByTime { (postArray) in
-            posts = opportunityArray
+            //posts = opportunityArray
             self.hubCollectionView.reloadData()
         }
         refreshControl.endRefreshing()

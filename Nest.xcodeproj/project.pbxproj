@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		850D247825E4139A008D317F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D247725E4139A008D317F /* Extensions.swift */; };
 		8529226025FBC9950017B38B /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529225F25FBC9950017B38B /* ImageServices.swift */; };
-		854B118C25F4425400C1B077 /* Hero in Resources */ = {isa = PBXBuildFile; fileRef = 854B118B25F4425400C1B077 /* Hero */; };
 		854B119125F447FE00C1B077 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B118F25F447FE00C1B077 /* PostCollectionViewCell.swift */; };
 		854B119225F447FE00C1B077 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854B119025F447FE00C1B077 /* PostCollectionViewCell.xib */; };
 		855F7FD725D1F6AC0082A181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855F7FD625D1F6AC0082A181 /* AppDelegate.swift */; };
@@ -18,8 +17,11 @@
 		855F7FE025D1F6AF0082A181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855F7FDF25D1F6AF0082A181 /* Assets.xcassets */; };
 		855F7FE325D1F6AF0082A181 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855F7FE125D1F6AF0082A181 /* LaunchScreen.storyboard */; };
 		857FAEC1261E9088001BDCAF /* addPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857FAEC0261E9088001BDCAF /* addPostViewController.swift */; };
+		857FAEC3261EBF27001BDCAF /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857FAEC2261EBF27001BDCAF /* GlobalVariables.swift */; };
+		857FAEC8261EC3CD001BDCAF /* Hero-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 857FAEC5261EC3CC001BDCAF /* Hero-Bold.ttf */; };
+		857FAEC9261EC3CD001BDCAF /* Hero-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 857FAEC6261EC3CC001BDCAF /* Hero-Regular.ttf */; };
+		857FAECA261EC3CD001BDCAF /* Hero-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 857FAEC7261EC3CC001BDCAF /* Hero-Light.ttf */; };
 		85BDE27725D22CBE0028BD49 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27625D22CBE0028BD49 /* DatabaseManager.swift */; };
-		85BDE27925D22D810028BD49 /* BasicUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27825D22D810028BD49 /* BasicUserProfile.swift */; };
 		85BDE27B25D22D8C0028BD49 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27A25D22D8C0028BD49 /* UserProfile.swift */; };
 		85BDE27D25D233110028BD49 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27C25D233110028BD49 /* StorageManager.swift */; };
 		85BDE27F25D243B30028BD49 /* HubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27E25D243B30028BD49 /* HubViewController.swift */; };
@@ -30,8 +32,7 @@
 		85CA82A125D1FA0F00C458C1 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82A025D1FA0F00C458C1 /* MobileNetV2.mlmodel */; };
 		85CA82A925D1FA5600C458C1 /* challengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85CA82A625D1FA5600C458C1 /* challengeCell.xib */; };
 		85CA82AA25D1FA5600C458C1 /* challengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82A725D1FA5600C458C1 /* challengeCell.swift */; };
-		85CA82AB25D1FA5600C458C1 /* challengeTableCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82A825D1FA5600C458C1 /* challengeTableCellClass.swift */; };
-		85CA82B025D1FA5F00C458C1 /* challenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82AE25D1FA5F00C458C1 /* challenges.swift */; };
+		85CA82B025D1FA5F00C458C1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82AE25D1FA5F00C458C1 /* Challenge.swift */; };
 		85CA82B625D1FB3100C458C1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82B325D1FB3000C458C1 /* HomeViewController.swift */; };
 		85CA82B725D1FB3100C458C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82B425D1FB3100C458C1 /* ProfileViewController.swift */; };
 		85CA82B825D1FB3100C458C1 /* CheckWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82B525D1FB3100C458C1 /* CheckWorkViewController.swift */; };
@@ -58,7 +59,6 @@
 		05344EA03AE90A91A3723AE8 /* Pods_Nest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D247725E4139A008D317F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8529225F25FBC9950017B38B /* ImageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
-		854B118B25F4425400C1B077 /* Hero */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hero; sourceTree = "<group>"; };
 		854B118F25F447FE00C1B077 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		854B119025F447FE00C1B077 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		855F7FD325D1F6AC0082A181 /* Nest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,8 +69,11 @@
 		855F7FE225D1F6AF0082A181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		855F7FE425D1F6AF0082A181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		857FAEC0261E9088001BDCAF /* addPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPostViewController.swift; sourceTree = "<group>"; };
+		857FAEC2261EBF27001BDCAF /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		857FAEC5261EC3CC001BDCAF /* Hero-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero-Bold.ttf"; sourceTree = "<group>"; };
+		857FAEC6261EC3CC001BDCAF /* Hero-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero-Regular.ttf"; sourceTree = "<group>"; };
+		857FAEC7261EC3CC001BDCAF /* Hero-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero-Light.ttf"; sourceTree = "<group>"; };
 		85BDE27625D22CBE0028BD49 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		85BDE27825D22D810028BD49 /* BasicUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserProfile.swift; sourceTree = "<group>"; };
 		85BDE27A25D22D8C0028BD49 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		85BDE27C25D233110028BD49 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		85BDE27E25D243B30028BD49 /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
@@ -79,8 +82,7 @@
 		85CA82A025D1FA0F00C458C1 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		85CA82A625D1FA5600C458C1 /* challengeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = challengeCell.xib; sourceTree = "<group>"; };
 		85CA82A725D1FA5600C458C1 /* challengeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = challengeCell.swift; sourceTree = "<group>"; };
-		85CA82A825D1FA5600C458C1 /* challengeTableCellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = challengeTableCellClass.swift; sourceTree = "<group>"; };
-		85CA82AE25D1FA5F00C458C1 /* challenges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = challenges.swift; sourceTree = "<group>"; };
+		85CA82AE25D1FA5F00C458C1 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		85CA82B325D1FB3000C458C1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		85CA82B425D1FB3100C458C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		85CA82B525D1FB3100C458C1 /* CheckWorkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckWorkViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 				85CA829F25D1FA0100C458C1 /* Resources */,
 				85CA82A425D1FA4800C458C1 /* Models */,
 				85CA82A225D1FA1600C458C1 /* Storyboards */,
-				854B118B25F4425400C1B077 /* Hero */,
+				857FAEC4261EC3CC001BDCAF /* Hero */,
 				85CA82A325D1FA2700C458C1 /* View Controllers */,
 				855F7FE425D1F6AF0082A181 /* Info.plist */,
 				85CA829D25D1F97F00C458C1 /* GoogleService-Info.plist */,
@@ -171,6 +173,16 @@
 			path = "Firebase stuff";
 			sourceTree = "<group>";
 		};
+		857FAEC4261EC3CC001BDCAF /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				857FAEC5261EC3CC001BDCAF /* Hero-Bold.ttf */,
+				857FAEC6261EC3CC001BDCAF /* Hero-Regular.ttf */,
+				857FAEC7261EC3CC001BDCAF /* Hero-Light.ttf */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
 		85CA829F25D1FA0100C458C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +192,7 @@
 				85CA82A025D1FA0F00C458C1 /* MobileNetV2.mlmodel */,
 				857FAEA6261E8C01001BDCAF /* Firebase stuff */,
 				850D247725E4139A008D317F /* Extensions.swift */,
+				857FAEC2261EBF27001BDCAF /* GlobalVariables.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -210,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				85CA82AC25D1FA5F00C458C1 /* Challenges */,
-				85BDE27825D22D810028BD49 /* BasicUserProfile.swift */,
 				85BDE27A25D22D8C0028BD49 /* UserProfile.swift */,
 				85BDE29F25D24F750028BD49 /* Post.swift */,
 			);
@@ -222,7 +234,6 @@
 			children = (
 				85CA82A625D1FA5600C458C1 /* challengeCell.xib */,
 				85CA82A725D1FA5600C458C1 /* challengeCell.swift */,
-				85CA82A825D1FA5600C458C1 /* challengeTableCellClass.swift */,
 			);
 			path = "Challenge Table Cell";
 			sourceTree = "<group>";
@@ -230,7 +241,7 @@
 		85CA82AC25D1FA5F00C458C1 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
-				85CA82AE25D1FA5F00C458C1 /* challenges.swift */,
+				85CA82AE25D1FA5F00C458C1 /* Challenge.swift */,
 			);
 			path = Challenges;
 			sourceTree = "<group>";
@@ -343,10 +354,12 @@
 				854B119225F447FE00C1B077 /* PostCollectionViewCell.xib in Resources */,
 				855F7FE325D1F6AF0082A181 /* LaunchScreen.storyboard in Resources */,
 				85CA829E25D1F97F00C458C1 /* GoogleService-Info.plist in Resources */,
-				854B118C25F4425400C1B077 /* Hero in Resources */,
 				855F7FE025D1F6AF0082A181 /* Assets.xcassets in Resources */,
 				855F7FDE25D1F6AC0082A181 /* Main.storyboard in Resources */,
+				857FAEC8261EC3CD001BDCAF /* Hero-Bold.ttf in Resources */,
 				85CA82BE25D1FD2D00C458C1 /* Starting.storyboard in Resources */,
+				857FAECA261EC3CD001BDCAF /* Hero-Light.ttf in Resources */,
+				857FAEC9261EC3CD001BDCAF /* Hero-Regular.ttf in Resources */,
 				85CA82A925D1FA5600C458C1 /* challengeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,24 +431,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				854B119125F447FE00C1B077 /* PostCollectionViewCell.swift in Sources */,
-				85CA82B025D1FA5F00C458C1 /* challenges.swift in Sources */,
+				85CA82B025D1FA5F00C458C1 /* Challenge.swift in Sources */,
 				85F5228F25D22B5A00F2DB55 /* AuthManager.swift in Sources */,
 				85BDE27B25D22D8C0028BD49 /* UserProfile.swift in Sources */,
 				85BDE27725D22CBE0028BD49 /* DatabaseManager.swift in Sources */,
 				85CA82B825D1FB3100C458C1 /* CheckWorkViewController.swift in Sources */,
 				85CA82B725D1FB3100C458C1 /* ProfileViewController.swift in Sources */,
-				85BDE27925D22D810028BD49 /* BasicUserProfile.swift in Sources */,
 				8529226025FBC9950017B38B /* ImageServices.swift in Sources */,
 				85CA82AA25D1FA5600C458C1 /* challengeCell.swift in Sources */,
 				855F7FD725D1F6AC0082A181 /* AppDelegate.swift in Sources */,
 				85CA82B625D1FB3100C458C1 /* HomeViewController.swift in Sources */,
-				85CA82AB25D1FA5600C458C1 /* challengeTableCellClass.swift in Sources */,
 				857FAEC1261E9088001BDCAF /* addPostViewController.swift in Sources */,
 				85CA82A125D1FA0F00C458C1 /* MobileNetV2.mlmodel in Sources */,
 				855F7FD925D1F6AC0082A181 /* SceneDelegate.swift in Sources */,
 				85CA82BB25D1FB8900C458C1 /* LoginViewController.swift in Sources */,
 				850D247825E4139A008D317F /* Extensions.swift in Sources */,
 				85BDE27D25D233110028BD49 /* StorageManager.swift in Sources */,
+				857FAEC3261EBF27001BDCAF /* GlobalVariables.swift in Sources */,
 				85BDE2A025D24F750028BD49 /* Post.swift in Sources */,
 				85BDE27F25D243B30028BD49 /* HubViewController.swift in Sources */,
 			);

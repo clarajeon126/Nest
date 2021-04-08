@@ -11,6 +11,8 @@ import Vision
 
 class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    var challengeInQuestion: Challenge = Challenge(title: "blank", description: "blank", image: URL(string: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC")!, emoji: "blank", point: 0, keywords: ["blank"])
+    /*
     let mobilenet = MobileNetV2()
     
     @IBOutlet weak var pageTitle: UILabel!
@@ -21,11 +23,12 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var resultLabel: UILabel!
-    
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
+        // Do any additional setup after loading the view.
+        /*
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.white, UIColor.systemPink]
@@ -33,10 +36,10 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
         
         pageTitle.text = challengeArray[descriptionInt].titleOfChallenge
         
-        descriptionLabel.text = "\(challengeArray[descriptionInt].descriptionOfChallenge)"
+        descriptionLabel.text = "\(challengeArray[descriptionInt].descriptionOfChallenge)"*/
 
     }
-    
+    /*
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         
@@ -174,5 +177,5 @@ class CheckWorkViewController: UIViewController, UITextFieldDelegate, UITextView
             self.present(alert, animated: true, completion: nil)
 
         }
-}
+}*/
 }

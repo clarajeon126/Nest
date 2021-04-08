@@ -46,7 +46,7 @@ class HubViewController: UIViewController {
 
 
     
-    //layout for collection view
+    //layout for collection view looks veryyyy cool
     static func createLayout() -> UICollectionViewCompositionalLayout {
         //items
         let twoByTwo = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1)))
@@ -117,4 +117,5 @@ class HubViewController: UIViewController {
         
         return UICollectionViewCompositionalLayout(section: section)
     }
+    
 }

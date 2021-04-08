@@ -7,6 +7,7 @@
 
 import Foundation
 
+//for basic user profile - info only necessary for post data and such
 public class BasicUserProfile {
     static var currentBasicUserProfile: BasicUserProfile?
 

@@ -8,13 +8,21 @@
 import Foundation
 import FirebaseDatabase
 
-//all things related to Firebase Database happen here
+/*
+    for all things related to Firebase Database
+    functions it contains:
+    - insert a user into the user branch in the database with first last name, prof pic url, uid
+    - add a post to the database includng all the data the post needs
+    - query posts by time and return an array of the posts
+ */
+
 public class DatabaseManager {
     static let shared = DatabaseManager()
     
     private let database = Database.database().reference()
     
     private let postDatabase = Database.database().reference().child("posts")
+    
     //inserting user into database
     public func insertNewUser(firstName: String, lastName: String, profilePhotoUrl: URL, completion: @escaping (Bool) -> Void){
         
@@ -65,6 +73,7 @@ public class DatabaseManager {
         return postsQueryRef
     }
     
+    //returns array of posts organized by time
     public func arrayOfPostByTime(completion: @escaping (_ posts: [Post])->()){
         queryPostsByTime.observeSingleEvent(of: .value) { (snapshot) in
             var posts = [Post]()

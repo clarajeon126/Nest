@@ -8,6 +8,14 @@
 import Foundation
 import FirebaseStorage
 
+/*
+    for all things related to firebase storage specifically regarding photos
+    Functions it contains:
+    - upload google prof pic
+    - upload general prof pic
+    - both the above lead to a general function that uploads the image itself into firebase storage
+    - upload photos related to posts
+ */
 public class StorageManager {
     
     static let shared = StorageManager()
@@ -16,6 +24,8 @@ public class StorageManager {
     
     let profilePhotoRef = Storage.storage().reference().child("Profile Photos")
     
+    
+    //for uploading profile photos related to google
     public func uploadGoogleUrlProfilePhoto(_ googleUrl: String, completion: @escaping ((_ url: URL?) -> ())){
         
         //setting the google url string to data to store to firebase storage

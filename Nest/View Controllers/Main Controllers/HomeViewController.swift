@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 import Firebase
 import GoogleSignIn
+
 var descriptionInt = 0
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     let challengeTableCellId = "challengeCell"

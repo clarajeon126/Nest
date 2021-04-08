@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
                                                    selector: #selector(userDidSignInGoogle(_:)),
                                                    name: .signInGoogleCompleted,
                                                    object: nil)
-        // Do any additional setup after loading the view.
     }
     
     @objc private func userDidSignInGoogle(_ notification: Notification) {
@@ -34,16 +33,5 @@ class LoginViewController: UIViewController {
             performSegue(withIdentifier: "loginToMain", sender: self)
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

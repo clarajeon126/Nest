@@ -9,7 +9,12 @@ import Foundation
 import FirebaseAuth
 import GoogleSignIn
 
-//all things related to Firebase Auth happen here
+/*
+    for all things related to Firebase Auth
+    functions it contains:
+    - retrieve user id from the auth manager
+ */
+
 public class AuthManager {
     
     // static auth to use all around the app

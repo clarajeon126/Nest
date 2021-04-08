@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+//Post class that creates  post and stores that info it needs so it can send and parse it from and to firebase
 public class Post {
     var id: String
     var author: BasicUserProfile
@@ -28,7 +30,7 @@ public class Post {
     }
     
     
-    //parse the json data into a Post
+    //parse the json data retrieved fom firebase into a Post
     static func parse(_ key: String, _ data: [String:Any], completion: @escaping (_ post: Post)->()){
         if let author = data["author"] as? [String:Any],
            let uid = author["uid"] as? String,

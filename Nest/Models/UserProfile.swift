@@ -7,6 +7,7 @@
 
 import Foundation
 
+//overall profile pic that contains bio, pts and everything
 public class UserProfile {
     static var currentUserProfile:UserProfile?
     

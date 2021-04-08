@@ -12,6 +12,7 @@ import UIKit
 //Designables for conveinience in storyboard
 @IBDesignable extension UIButton {
 
+    //for border width
     @IBInspectable var borderWidth: CGFloat {
         set {
             layer.borderWidth = newValue
@@ -21,6 +22,7 @@ import UIKit
         }
     }
     
+    //for corner radius
     @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
@@ -30,6 +32,7 @@ import UIKit
         }
     }
 
+    //for border color
     @IBInspectable var borderColor: UIColor? {
         set {
             guard let uiColor = newValue else { return }
@@ -42,6 +45,8 @@ import UIKit
     }
 }
 
+
+//for showing dates in a nice way later on in when showing post times
 extension Date
 {
     func calenderTimeSinceNow() -> String

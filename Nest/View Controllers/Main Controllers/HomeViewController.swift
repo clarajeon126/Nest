@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
 
     var personalChallenges:[Challenge] = []
     @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var greetingsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,6 @@ class HomeViewController: UIViewController {
         homeTableView.dataSource = self
         homeTableView.delegate = self
         homeTableView.separatorColor = .clear
-        
-        
         
         //reloadHomeTableData()
         
@@ -40,6 +39,33 @@ class HomeViewController: UIViewController {
         
     }
     
+    func setGreetingLabel(){
+        var greeting = ""
+        
+        let currentDate = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = NSTimeZone.local
+        
+        dateFormatter.dateFormat = "HH"
+        
+        let dateHour:Int = Int(dateFormatter.string(from: currentDate)) ?? 1
+        print(dateHour)
+        
+        if dateHour < 12 {
+            greeting.append("Good Morning, ")
+        }
+        else if dateHour < 16 {
+            greeting.append("Good Afternoon, ")
+        }
+        else {
+            greeting.append("Good Evening, ")
+        }
+        
+        greeting.append(UserProfile.currentUserProfile?.firstName ?? "error")
+        greeting.append("☺️")
+        greetingsLabel.text = greeting
+    }
 
     //handle not authenticated to lead to login screen
     private func handleNotAuthenticated() {
@@ -63,6 +89,7 @@ class HomeViewController: UIViewController {
                 DatabaseManager.shared.returnChallengeArray { (challenges) in
                     print("received array from firebase")
                     challengeArray = challenges
+                    self.setGreetingLabel()
                     self.reloadHomeTableData()
                 }
             }

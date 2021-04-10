@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		850D247825E4139A008D317F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D247725E4139A008D317F /* Extensions.swift */; };
+		85175D9326225DA900BFFAF6 /* successViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85175D9226225DA900BFFAF6 /* successViewController.swift */; };
+		85175D9526225DB200BFFAF6 /* oopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85175D9426225DB200BFFAF6 /* oopsViewController.swift */; };
 		8529226025FBC9950017B38B /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529225F25FBC9950017B38B /* ImageServices.swift */; };
 		854B119125F447FE00C1B077 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B118F25F447FE00C1B077 /* PostCollectionViewCell.swift */; };
 		854B119225F447FE00C1B077 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854B119025F447FE00C1B077 /* PostCollectionViewCell.xib */; };
@@ -58,6 +60,8 @@
 /* Begin PBXFileReference section */
 		05344EA03AE90A91A3723AE8 /* Pods_Nest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850D247725E4139A008D317F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		85175D9226225DA900BFFAF6 /* successViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = successViewController.swift; sourceTree = "<group>"; };
+		85175D9426225DB200BFFAF6 /* oopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oopsViewController.swift; sourceTree = "<group>"; };
 		8529225F25FBC9950017B38B /* ImageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		854B118F25F447FE00C1B077 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		854B119025F447FE00C1B077 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 			children = (
 				85CA82B525D1FB3100C458C1 /* CheckWorkViewController.swift */,
 				857FAEC0261E9088001BDCAF /* addPostViewController.swift */,
+				85175D9226225DA900BFFAF6 /* successViewController.swift */,
+				85175D9426225DB200BFFAF6 /* oopsViewController.swift */,
 			);
 			path = "Sub Controllers";
 			sourceTree = "<group>";
@@ -435,7 +441,9 @@
 				85F5228F25D22B5A00F2DB55 /* AuthManager.swift in Sources */,
 				85BDE27B25D22D8C0028BD49 /* UserProfile.swift in Sources */,
 				85BDE27725D22CBE0028BD49 /* DatabaseManager.swift in Sources */,
+				85175D9526225DB200BFFAF6 /* oopsViewController.swift in Sources */,
 				85CA82B825D1FB3100C458C1 /* CheckWorkViewController.swift in Sources */,
+				85175D9326225DA900BFFAF6 /* successViewController.swift in Sources */,
 				85CA82B725D1FB3100C458C1 /* ProfileViewController.swift in Sources */,
 				8529226025FBC9950017B38B /* ImageServices.swift in Sources */,
 				85CA82AA25D1FA5600C458C1 /* challengeCell.swift in Sources */,

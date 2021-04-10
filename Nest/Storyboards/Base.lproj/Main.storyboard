@@ -89,8 +89,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Caption 📝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3c-xz-jw8">
-                                <rect key="frame" x="30" y="40" width="221" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption 📝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3c-xz-jw8">
+                                <rect key="frame" x="30" y="40" width="201" height="48"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4k9-tW-lHv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="1021"/>
+            <point key="canvasLocation" x="-626" y="986"/>
         </scene>
         <!--Check in-->
         <scene sceneID="o4l-jc-9Um">
@@ -186,7 +186,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ia-IT-Vcc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ia-IT-Vcc">
                                 <rect key="frame" x="20" y="356" width="324" height="231.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9ia-IT-Vcc" secondAttribute="height" multiplier="1.4" id="4VM-pv-X7L"/>
@@ -195,14 +195,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink water 🚰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8mn-OG-7j3">
                                 <rect key="frame" x="10" y="30" width="394" height="48"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="40"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jof-JH-JEF">
-                                <rect key="frame" x="70" y="98" width="324" height="288"/>
-                                <color key="backgroundColor" red="0.79607843140000001" green="0.95294117649999999" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Journaling can help with personal growth and development. Recording your thoughts can help with learning about your own behaviors and moods. Many people also journal because it helps keep your brain in tip-top shape. Not only does it boost memory and comprehension, but it also increases working memory capacity!</string>
-                                <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="20"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yJX-Jd-ONo">
@@ -228,23 +220,34 @@
                                         <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Take a Pic to Submit 😁 "/>
+                                        <connections>
+                                            <action selector="picToSubmit:" destination="2LM-Mi-0Rh" eventType="touchUpInside" id="wee-uI-2vG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PwG-WR-xgu">
+                                <rect key="frame" x="70" y="98" width="324" height="288"/>
+                                <color key="backgroundColor" red="0.79607843140000001" green="0.95294117649999999" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Journaling can help with personal growth and development. Recording your thoughts can help with learning about your own behaviors and moods. Many people also journal because it helps keep your brain in tip-top shape. Not only does it boost memory and comprehension, but it also increases working memory capacity!</string>
+                                <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9rV-ZZ-u0J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="top" secondItem="9rV-ZZ-u0J" secondAttribute="top" constant="30" id="2hj-Sq-ixV"/>
+                            <constraint firstItem="PwG-WR-xgu" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="70" id="5Op-Fc-uKk"/>
                             <constraint firstItem="yJX-Jd-ONo" firstAttribute="width" secondItem="IKk-WX-STB" secondAttribute="width" multiplier="0.8" id="76F-f5-nZL"/>
-                            <constraint firstItem="9ia-IT-Vcc" firstAttribute="top" secondItem="jof-JH-JEF" secondAttribute="bottom" constant="-30" id="KAj-xE-iaq"/>
+                            <constraint firstItem="PwG-WR-xgu" firstAttribute="top" secondItem="8mn-OG-7j3" secondAttribute="bottom" constant="20" id="GJf-me-seh"/>
                             <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="9ia-IT-Vcc" secondAttribute="trailing" constant="70" id="Laq-5R-8lI"/>
-                            <constraint firstItem="jof-JH-JEF" firstAttribute="top" secondItem="8mn-OG-7j3" secondAttribute="bottom" constant="20" id="LwA-wA-x7Q"/>
+                            <constraint firstItem="9ia-IT-Vcc" firstAttribute="top" secondItem="PwG-WR-xgu" secondAttribute="bottom" constant="-30" id="RMc-OL-oOH"/>
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="Tzq-LC-6X0"/>
                             <constraint firstItem="yJX-Jd-ONo" firstAttribute="centerX" secondItem="IKk-WX-STB" secondAttribute="centerX" id="UN1-WM-Nqf"/>
+                            <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="PwG-WR-xgu" secondAttribute="trailing" constant="20" id="VQL-Sx-1d2"/>
                             <constraint firstItem="9ia-IT-Vcc" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="20" id="ayY-KA-q5M"/>
-                            <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="jof-JH-JEF" secondAttribute="trailing" constant="20" id="ff1-bP-ob4"/>
-                            <constraint firstItem="jof-JH-JEF" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="70" id="i2p-WC-3cq"/>
                             <constraint firstItem="9rV-ZZ-u0J" firstAttribute="trailing" secondItem="8mn-OG-7j3" secondAttribute="trailing" constant="10" id="tkB-fJ-89n"/>
                             <constraint firstItem="yJX-Jd-ONo" firstAttribute="top" secondItem="9ia-IT-Vcc" secondAttribute="bottom" constant="20" id="vgf-dC-eyf"/>
                             <constraint firstItem="8mn-OG-7j3" firstAttribute="leading" secondItem="9rV-ZZ-u0J" secondAttribute="leading" constant="10" id="xDI-e6-7YE"/>
@@ -254,17 +257,77 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="jYe-rY-LLo"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionLabel" destination="jof-JH-JEF" id="etZ-kh-jcC"/>
+                        <outlet property="descriptionLabel" destination="PwG-WR-xgu" id="myl-du-4eS"/>
                         <outlet property="imageView" destination="9ia-IT-Vcc" id="q77-d4-OqX"/>
                         <outlet property="inspirationButton" destination="ypy-g5-MJf" id="xyt-lq-T2I"/>
                         <outlet property="takeAPicButton" destination="m3k-B5-eHX" id="0Fi-gf-sjM"/>
                         <outlet property="titleLabel" destination="8mn-OG-7j3" id="gts-xx-nLC"/>
-                        <segue destination="MtI-HJ-SwH" kind="presentation" id="IJo-5i-ahJ"/>
+                        <segue destination="o0I-fA-56H" kind="presentation" identifier="challengeToSuccess" modalPresentationStyle="fullScreen" id="Q7R-ld-Jse"/>
+                        <segue destination="rRh-sU-muI" kind="presentation" identifier="challengeToOops" modalPresentationStyle="fullScreen" id="xqR-q2-WFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="al3-nZ-15w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="1021"/>
+            <point key="canvasLocation" x="209" y="986"/>
+        </scene>
+        <!--Oops View Controller-->
+        <scene sceneID="gHG-la-n6N">
+            <objects>
+                <viewController id="rRh-sU-muI" customClass="oopsViewController" customModule="Nest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fS8-tX-oyM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops 😔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwT-Ed-w4j">
+                                <rect key="frame" x="112.5" y="348" width="189.5" height="60"/>
+                                <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="50"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n0A-48-4QR">
+                                <rect key="frame" x="103.5" y="428" width="207" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoP-VR-sR8">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="41"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" title="Try again!">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-Fu-b6C">
+                                        <rect key="frame" x="0.0" y="61" width="207" height="41"/>
+                                        <color key="backgroundColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" title="Return back Home">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="OZ1-tR-7NP" kind="presentation" modalPresentationStyle="fullScreen" id="Lgi-nk-jIV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hYZ-Ms-cJ9"/>
+                        <color key="backgroundColor" red="1" green="0.62352941179999999" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="n0A-48-4QR" firstAttribute="top" secondItem="WwT-Ed-w4j" secondAttribute="bottom" constant="20" id="Bx6-gv-fcO"/>
+                            <constraint firstItem="WwT-Ed-w4j" firstAttribute="centerY" secondItem="fS8-tX-oyM" secondAttribute="centerY" constant="-70" id="SlB-N9-akU"/>
+                            <constraint firstItem="WwT-Ed-w4j" firstAttribute="centerX" secondItem="fS8-tX-oyM" secondAttribute="centerX" id="dyx-QP-4C4"/>
+                            <constraint firstItem="n0A-48-4QR" firstAttribute="centerX" secondItem="fS8-tX-oyM" secondAttribute="centerX" id="gyn-HN-Ur4"/>
+                            <constraint firstItem="n0A-48-4QR" firstAttribute="width" secondItem="fS8-tX-oyM" secondAttribute="width" multiplier="0.5" id="pMP-L8-ne9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="o0I-fA-56H" kind="presentation" identifier="oopsToSuccess" modalPresentationStyle="fullScreen" id="Bjm-O9-F0j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyR-wJ-sep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="1786"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="EzR-Yo-Z0r">
@@ -279,7 +342,7 @@
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning Clara,☺️" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpU-Wt-C7a">
-                                <rect key="frame" x="30" y="74" width="354" height="120"/>
+                                <rect key="frame" x="30" y="74" width="384" height="120"/>
                                 <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="50"/>
                                 <color key="highlightedColor" red="0.96862745100000003" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
@@ -349,7 +412,7 @@
                             <constraint firstItem="PbG-gt-iOn" firstAttribute="trailing" secondItem="K2w-G6-rT7" secondAttribute="trailing" constant="30" id="XFt-kZ-DGc"/>
                             <constraint firstItem="eRb-Vw-oxx" firstAttribute="leading" secondItem="PbG-gt-iOn" secondAttribute="leading" constant="55" id="cFW-wz-qH1"/>
                             <constraint firstItem="hpU-Wt-C7a" firstAttribute="top" secondItem="PbG-gt-iOn" secondAttribute="top" constant="30" id="hr4-VG-CSG"/>
-                            <constraint firstAttribute="trailing" secondItem="hpU-Wt-C7a" secondAttribute="trailing" constant="30" id="jZI-7q-uUv"/>
+                            <constraint firstAttribute="trailing" secondItem="hpU-Wt-C7a" secondAttribute="trailing" id="jZI-7q-uUv"/>
                             <constraint firstItem="Sz8-KB-I5r" firstAttribute="height" secondItem="jWk-o5-d6F" secondAttribute="height" multiplier="0.08" id="kx2-ad-b5A"/>
                             <constraint firstItem="hpU-Wt-C7a" firstAttribute="leading" secondItem="PbG-gt-iOn" secondAttribute="leading" constant="30" id="m86-ok-hUR"/>
                             <constraint firstItem="K2w-G6-rT7" firstAttribute="leading" secondItem="PbG-gt-iOn" secondAttribute="leading" constant="30" id="rkH-H9-GBO"/>
@@ -360,6 +423,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="greetingsLabel" destination="hpU-Wt-C7a" id="uKU-XU-TNf"/>
                         <outlet property="homeTableView" destination="K2w-G6-rT7" id="uWl-vu-miy"/>
                         <segue destination="2LM-Mi-0Rh" kind="show" identifier="goToDescription" id="0BE-rN-nUu"/>
                     </connections>
@@ -462,7 +526,70 @@
             </objects>
             <point key="canvasLocation" x="-626.08695652173913" y="116.51785714285714"/>
         </scene>
+        <!--Success View Controller-->
+        <scene sceneID="jnL-SU-mg9">
+            <objects>
+                <viewController id="o0I-fA-56H" customClass="successViewController" customModule="Nest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SN0-S9-q18">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success 🎉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5i-5f-ICb">
+                                <rect key="frame" x="74.5" y="348" width="265.5" height="60"/>
+                                <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="50"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K2K-q6-vcT">
+                                <rect key="frame" x="103.5" y="428" width="207" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-hb-pAM">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="41"/>
+                                        <color key="backgroundColor" red="1" green="0.62352941179999999" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" title="Share on the Hub">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="MtI-HJ-SwH" kind="presentation" id="mwa-0V-HaU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nk-A0-YuG">
+                                        <rect key="frame" x="0.0" y="61" width="207" height="41"/>
+                                        <color key="backgroundColor" red="1" green="0.62352941179999999" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Hero-Regular" family="Hero" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" title="Return back Home">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="OZ1-tR-7NP" kind="presentation" modalPresentationStyle="fullScreen" id="4UD-tr-num"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AWh-QJ-Dsn"/>
+                        <color key="backgroundColor" red="0.18039215689999999" green="0.76862745099999996" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="K2K-q6-vcT" firstAttribute="top" secondItem="C5i-5f-ICb" secondAttribute="bottom" constant="20" id="0Af-cq-P8U"/>
+                            <constraint firstItem="K2K-q6-vcT" firstAttribute="width" secondItem="SN0-S9-q18" secondAttribute="width" multiplier="0.5" id="1tu-cf-NfV"/>
+                            <constraint firstItem="K2K-q6-vcT" firstAttribute="centerX" secondItem="SN0-S9-q18" secondAttribute="centerX" id="72I-WE-nib"/>
+                            <constraint firstItem="C5i-5f-ICb" firstAttribute="centerX" secondItem="SN0-S9-q18" secondAttribute="centerX" id="HCT-yi-Kw2"/>
+                            <constraint firstItem="C5i-5f-ICb" firstAttribute="centerY" secondItem="SN0-S9-q18" secondAttribute="centerY" constant="-70" id="n8q-Kk-het"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qik-o0-uKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384" y="1804"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Q7R-ld-Jse"/>
+        <segue reference="Lgi-nk-jIV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="nestlogotransparent" width="96" height="96"/>
         <image name="profile" width="500" height="500"/>

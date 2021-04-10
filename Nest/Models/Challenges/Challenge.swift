@@ -13,14 +13,16 @@ public class Challenge {
     var image: URL
     var emoji: String
     var point:Int
+    var hashtag:String
     var keywords:[String]
     
-    required init(title: String, description: String, image: URL, emoji: String, point: Int, keywords:[String]) {
+    required init(title: String, description: String, image: URL, emoji: String, point: Int, hashtag: String, keywords:[String]) {
         self.title = title
         self.description = description
         self.image = image
         self.emoji = emoji
         self.point = point
+        self.hashtag = hashtag
         self.keywords = keywords
         
     }
@@ -33,11 +35,12 @@ public class Challenge {
            let image = URL(string: imageAsString),
            let emoji = data["emoji"] as? String,
            let point = data["point"] as? Int,
+           let hashtag = data["hashtag"] as? String,
            let keyword = data["keyword"] as? [String]{
             
             
             //create a challenge
-            let newChallenge = Challenge(title: title, description: description, image: image, emoji: emoji, point: point, keywords: keyword)
+            let newChallenge = Challenge(title: title, description: description, image: image, emoji: emoji, point: point, hashtag: hashtag, keywords: keyword)
             
             completion(newChallenge)
         }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//in order to process images from firebase
 class ImageService {
     
     static let cache = NSCache<NSString, UIImage>()

@@ -186,7 +186,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ia-IT-Vcc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="9ia-IT-Vcc">
                                 <rect key="frame" x="20" y="356" width="324" height="231.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9ia-IT-Vcc" secondAttribute="height" multiplier="1.4" id="4VM-pv-X7L"/>
@@ -322,6 +322,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backToHomeButton" destination="Lf0-Fu-b6C" id="KPf-SB-e10"/>
+                        <outlet property="tryAgainButton" destination="uoP-VR-sR8" id="ElG-dr-ZX7"/>
                         <segue destination="o0I-fA-56H" kind="presentation" identifier="oopsToSuccess" modalPresentationStyle="fullScreen" id="Bjm-O9-F0j"/>
                     </connections>
                 </viewController>
@@ -580,10 +582,14 @@
                             <constraint firstItem="C5i-5f-ICb" firstAttribute="centerY" secondItem="SN0-S9-q18" secondAttribute="centerY" constant="-70" id="n8q-Kk-het"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backHomeButton" destination="4nk-A0-YuG" id="LvZ-E7-rQS"/>
+                        <outlet property="shareButton" destination="hm3-hb-pAM" id="lrt-bd-7Yw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qik-o0-uKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-384" y="1804"/>
+            <point key="canvasLocation" x="-396" y="1786"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -591,6 +597,7 @@
         <segue reference="Lgi-nk-jIV"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="loading" width="467" height="333.5"/>
         <image name="nestlogotransparent" width="96" height="96"/>
         <image name="profile" width="500" height="500"/>
         <image name="thehub" width="500" height="500"/>

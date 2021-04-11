@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
         homeTableView.delegate = self
         homeTableView.separatorColor = .clear
         
-        //reloadHomeTableData()
         
     }
     

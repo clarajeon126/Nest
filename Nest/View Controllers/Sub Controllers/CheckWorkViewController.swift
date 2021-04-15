@@ -11,19 +11,9 @@ import Vision
 
 class CheckWorkViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
-    var challengeInQuestion: Challenge = Challenge(title: "blank", description: "blank", image: URL(string: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC")!, emoji: "blank", point: 0, hashtag: "blank", keywords: ["blank"])
-    /*
-    let mobilenet = MobileNetV2()
-    
-    @IBOutlet weak var pageTitle: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    var challengeName = challengeArray[descriptionInt].keywords
-    //change to array at thing
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var resultLabel: UILabel!
-    */
+    var challengeInQuestion: Challenge = Challenge(title: "blank", description: "blank", image: blankUrl!, emoji: "blank", point: 0, hashtag: "blank", keywords: ["blank"])
+    var imageTaken: UIImage = #imageLiteral(resourceName: "loading")
+    var numInPersonalChallengeArray = 0
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -87,7 +77,7 @@ class CheckWorkViewController: UIViewController, UIImagePickerControllerDelegate
         if let pickedImage = info[.editedImage] as? UIImage {
             
             //process it through and convert image to pixel buffer
-            if let imagebuffer = convertImage(image: pickedImage) {
+            if let imagebuffer = MLServices.convertImage(image: pickedImage) {
                 
                 if let prediction = try? mobileNet.prediction(image: imagebuffer){
                     
@@ -117,6 +107,7 @@ class CheckWorkViewController: UIViewController, UIImagePickerControllerDelegate
                             //success, if this never runs it means it failed
                             if resultInFocus == keywordInFocus {
                                 isSuccess = true
+                                imageTaken = pickedImage
                                 print("result:\(resultInFocus), keyword:\(keywordInFocus), and a success!")
                             }
                         }
@@ -139,197 +130,21 @@ class CheckWorkViewController: UIViewController, UIImagePickerControllerDelegate
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // convert A image to cv Pixel Buffer with 224*224 so it can process through ml model
-    func convertImage(image: UIImage) -> CVPixelBuffer? {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let newSize = CGSize(width: 224.0, height: 224.0)
-        UIGraphicsBeginImageContext(newSize)
-        image.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
-        
-        guard let resizedImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            return nil
+        //prepare segue for success vc
+        if segue.identifier == "challengeToSuccess"{
+            let destination = segue.destination as! successViewController
+            destination.challengeInQuestion = self.challengeInQuestion
+            destination.imageInQuestion = imageTaken
+            destination.numInPersonalChallengeArray = self.numInPersonalChallengeArray
         }
         
-        UIGraphicsEndImageContext()
-        
-        // convert to pixel buffer
-        
-        let attributes = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
-                          kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
-        var pixelBuffer: CVPixelBuffer?
-        let status = CVPixelBufferCreate(kCFAllocatorDefault,
-                                         Int(newSize.width),
-                                         Int(newSize.height),
-                                         kCVPixelFormatType_32ARGB,
-                                         attributes,
-                                         &pixelBuffer)
-        
-        guard let createdPixelBuffer = pixelBuffer, status == kCVReturnSuccess else {
-            return nil
-        }
-        
-        CVPixelBufferLockBaseAddress(createdPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        let pixelData = CVPixelBufferGetBaseAddress(createdPixelBuffer)
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        guard let context = CGContext(data: pixelData,
-                                      width: Int(newSize.width),
-                                      height: Int(newSize.height),
-                                      bitsPerComponent: 8,
-                                      bytesPerRow: CVPixelBufferGetBytesPerRow(createdPixelBuffer),
-                                      space: colorSpace,
-                                      bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
-            return nil
-        }
-        
-        context.translateBy(x: 0, y: newSize.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-        
-        UIGraphicsPushContext(context)
-        resizedImage.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        UIGraphicsPopContext()
-        CVPixelBufferUnlockBaseAddress(createdPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        
-        return createdPixelBuffer
-    }
-    
-    /*
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true)
-        
-        guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
-            return
-        }
-        
-        imageView.image = image
-        resultLabel.text = "Loading..."
-        if let imagebuffer = convertImage(image: image) {
-            
-            if let prediction = try? mobilenet.prediction(image: imagebuffer){
-                print("hello")
-                print(" \(prediction.classLabel) ")
-                resultLabel!.text =  "\(prediction.classLabel)"
-            }
+        //prepare for oops vc
+        else if segue.identifier == "challengeToOops"{
+            let destination = segue.destination as! oopsViewController
+            destination.challengeInQuestion = self.challengeInQuestion
+            destination.numInPersonalChallengeArray = self.numInPersonalChallengeArray
         }
     }
-    
-    // convert A image to cv Pixel Buffer with 224*224
-    func convertImage(image: UIImage) -> CVPixelBuffer? {
-        
-        let newSize = CGSize(width: 224.0, height: 224.0)
-        UIGraphicsBeginImageContext(newSize)
-        image.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
-        
-        guard let resizedImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            return nil
-        }
-        
-        UIGraphicsEndImageContext()
-        
-        // convert to pixel buffer
-        
-        let attributes = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
-                          kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
-        var pixelBuffer: CVPixelBuffer?
-        let status = CVPixelBufferCreate(kCFAllocatorDefault,
-                                         Int(newSize.width),
-                                         Int(newSize.height),
-                                         kCVPixelFormatType_32ARGB,
-                                         attributes,
-                                         &pixelBuffer)
-        
-        guard let createdPixelBuffer = pixelBuffer, status == kCVReturnSuccess else {
-            return nil
-        }
-        
-        CVPixelBufferLockBaseAddress(createdPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        let pixelData = CVPixelBufferGetBaseAddress(createdPixelBuffer)
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        guard let context = CGContext(data: pixelData,
-                                      width: Int(newSize.width),
-                                      height: Int(newSize.height),
-                                      bitsPerComponent: 8,
-                                      bytesPerRow: CVPixelBufferGetBytesPerRow(createdPixelBuffer),
-                                      space: colorSpace,
-                                      bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
-            return nil
-        }
-        
-        context.translateBy(x: 0, y: newSize.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-        
-        UIGraphicsPushContext(context)
-        resizedImage.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        UIGraphicsPopContext()
-        CVPixelBufferUnlockBaseAddress(createdPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        
-        return createdPixelBuffer
-    }
-    
-    
-    @IBAction func camClicked(_ sender: Any) {
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.allowsEditing = true
-        vc.delegate = self
-        present(vc, animated: true)
-
-    }
-    
-    
-    @IBAction func checkClicked(_ sender: Any) {
-        print("hello there")
-        
-        var resultsText = resultLabel!.text
-//        if resultsText!.contains(challengeName) {
-        let word = resultsText!.components(separatedBy: " ").first
-        print(word!)
-
-
-        if challengeName.contains(word!) {
-
-            print("poggers!! ")
-            let alert = UIAlertController(title: "Congrats on completing your task!", message: "You have gained 10 points for this task!", preferredStyle: .alert)
-        
-            let ok = UIAlertAction(title: "Save for myself", style: .default, handler: { action in
-
-                if self.imageView.image != nil {
-
-                    if let imageData = self.imageView.image?.pngData() {
-//save image
-                    }
-
-                }
-            })
-
-            alert.addAction(ok)
-
-            let post = UIAlertAction(title: "Post on The Hub to inspire others!", style: .default, handler: { action in
-                // what happens when they post it to hub- firebase
-
-
-            })
-            alert.addAction(post)
-
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-            })
-            alert.addAction(cancel)
-            DispatchQueue.main.async(execute: {
-                self.present(alert, animated: true)
-            })
-
-        } else {
-        print("nope send error message")
-            print("nope")
-
-            let alert = UIAlertController(title: "Whoops", message: "Please take another picture!.", preferredStyle: UIAlertController.Style.alert)
-
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
-            self.present(alert, animated: true, completion: nil)
-
-        }
-}*/
 }

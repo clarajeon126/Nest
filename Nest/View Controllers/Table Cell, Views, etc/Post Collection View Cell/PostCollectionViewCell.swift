@@ -20,7 +20,8 @@ class PostCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        overallImageView.layer.cornerRadius = 15
+        profilePicImageView.layer.cornerRadius = 20
+        mainView.clipsToBounds = true
         mainView.layer.cornerRadius = 15
     }
     
@@ -28,34 +29,30 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     
     //set values in the post cell
-    /*func set(post: Post){
+    func set(post: Post){
         self.post = post
         
-        if post.isAnonymous {
-            //setting profile pic image
-            self.profilePicImageView.image = nil
-            ImageService.getImage(withURL: post.author.profilePhotoUrl) { (profileImage, url) in
-                guard let _post = self.post else {
-                    return
+        if !post.isAnonymous {
+
+            //receiving profile data
+            DatabaseManager.shared.getUserProfileFromUid(uid: post.author) { (userProfile) in
+                
+                //setting image
+                ImageService.getImage(withURL: userProfile.profilePicUrl) { (profileImage, url) in
+                    self.profilePicImageView.image = profileImage
                 }
                 
-                if _post.author.profilePhotoUrl.absoluteString == url.absoluteString {
-                    self.profilePicImageView.image = profileImage
-                } else {
-                    print("wrong profile image for some reason error")
-                }
+                self.userNameLabel.text = userProfile.firstName + " " + userProfile.lastName
             }
             
-            //setting image
-            userNameLabel.text = post.author.firstName + " " + post.author.lastName
-        } else {
+        }
+        else {
             self.profilePicImageView.image = #imageLiteral(resourceName: "blankprofilepic")
             self.userNameLabel.text = "Anonymous User"
         }
         
         
         //setting main image
-        self.overallImageView.image = nil
         ImageService.getImage(withURL: post.postImage) { (postImage, url) in
             guard let _post = self.post else {
                 return
@@ -71,12 +68,12 @@ class PostCollectionViewCell: UICollectionViewCell {
         
         
         //setting text
-        hashtagLabel.titleLabel?.text = post.hashtag
+        hashtagLabel.setTitle("#\(post.hashtag)", for: .normal)
         contentLabel.text = post.postCaption
         
         //setting time
         timeLabel.text = post.createdAt.calenderTimeSinceNow()
         
-    }*/
+    }
 
 }

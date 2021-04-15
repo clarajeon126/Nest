@@ -126,7 +126,7 @@ public class DatabaseManager {
     
     
     //add post into firebase
-    public func addPost(anonymous: Bool, caption: String, image: UIImage, hashtag: String){
+    public func addPost(anonymous: Bool, caption: String, image: UIImage, hashtag: String, completion: @escaping (_ success: Bool)->()){
         
         //creating the reference to the post
         let postChildRef = postDatabase.childByAutoId()
@@ -151,16 +151,28 @@ public class DatabaseManager {
             //creating the post obj
             let postObj = ["author": authorString,
                            "caption": caption,
-                           "image": url,
+                           "image": url?.absoluteString,
                            "hashtag": hashtag,
                            "timestamp": [".sv":"timestamp"] ] as [String: Any]
             
             postChildRef.setValue(postObj)
+            completion(true)
         }
         
     }
     
-    //query for opportunities by timestamp
+    //return a simple user profile to be used
+    public func getUserProfileFromUid(uid: String, completion: @escaping (_ userProfile: OutsideUserProfile)->()){
+        userDatabase.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                OutsideUserProfile.parse(dict) { (userProfile) in
+                    completion(userProfile)
+                }
+            }
+        }
+    }
+    
+    //query for posts by timestamp
     var queryPostsByTime: DatabaseQuery {
         var postsQueryRef: DatabaseQuery
         
@@ -171,16 +183,54 @@ public class DatabaseManager {
     //returns array of posts organized by time
     public func arrayOfPostByTime(completion: @escaping (_ posts: [Post])->()){
         queryPostsByTime.observeSingleEvent(of: .value) { (snapshot) in
+            print("in query")
             var posts = [Post]()
             var numOfChildThroughFor = 0
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot {
                     if let data = childSnapshot.value as? [String: Any]{
+                        print("hereee")
+                        print(data)
                         Post.parse(childSnapshot.key, data) { (post) in
+                            print("parse\(numOfChildThroughFor)")
                             numOfChildThroughFor += 1
                             posts.insert(post, at: 0)
                             if numOfChildThroughFor == snapshot.childrenCount {
                                 return completion(posts)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    //query for posts by user
+    var queryUserPosts: DatabaseQuery {
+        var postsQueryRef: DatabaseQuery
+        
+        postsQueryRef = postDatabase.queryOrdered(byChild: "author").queryEqual(toValue: UserProfile.currentUserProfile?.uid)
+        return postsQueryRef
+    }
+    
+    //returns array of posts by user
+    public func arrayOfPostsByUser(completion: @escaping (_ posts: [Post])->()){
+        queryUserPosts.observeSingleEvent(of: .value) { (snapshot) in
+            print(snapshot)
+            print("in query")
+            var userPosts = [Post]()
+            var numOfChildThroughFor = 0
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot {
+                    if let data = childSnapshot.value as? [String: Any]{
+                        print("hereee")
+                        print(data)
+                        Post.parse(childSnapshot.key, data) { (post) in
+                            print("parse\(numOfChildThroughFor)")
+                            numOfChildThroughFor += 1
+                            userPosts.insert(post, at: 0)
+                            if numOfChildThroughFor == snapshot.childrenCount {
+                                return completion(userPosts)
                             }
                         }
                     }

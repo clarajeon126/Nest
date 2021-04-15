@@ -17,3 +17,7 @@ public var lightOrangeColor = UIColor(red: 255/255, green: 191/255, blue: 105/25
 public var brightCyanColor = UIColor(red: 46/255, green: 196/255, blue: 182/255, alpha: 1)
 
 public var lightCyanColor = UIColor(red: 203/255, green: 243/255, blue: 240/255, alpha: 1)
+
+//random pic
+public var blankUrl = URL(string: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC")
+

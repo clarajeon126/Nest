@@ -229,6 +229,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let descriptionVC = segue.destination as! CheckWorkViewController
             
             descriptionVC.challengeInQuestion = personalChallenges[indexPath!.row]
+            descriptionVC.numInPersonalChallengeArray = indexPath!.row
         }
     }
 }

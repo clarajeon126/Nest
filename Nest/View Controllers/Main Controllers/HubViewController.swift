@@ -19,8 +19,8 @@ class HubViewController: UIViewController {
         super.viewDidLoad()
         
         hubCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "postCell")
-        //hubCollectionView.dataSource = self
-        //hubCollectionView.delegate = self
+        hubCollectionView.dataSource = self
+        hubCollectionView.delegate = self
         hubCollectionView.collectionViewLayout = HubViewController.createLayout()
         
         refreshControl = UIRefreshControl()
@@ -31,14 +31,18 @@ class HubViewController: UIViewController {
             // Fallback on earlier versions
             hubCollectionView.addSubview(refreshControl)
         }
+        
         refreshControl.addTarget(self, action: #selector(reloadCollectionViewData), for: .valueChanged)
         reloadCollectionViewData()
-        
     }
     
+    
+    //refresh the data and update collection view data
     @objc func reloadCollectionViewData(){
+        print("here")
         DatabaseManager.shared.arrayOfPostByTime { (postArray) in
-            //posts = opportunityArray
+            print(postArray)
+            self.posts = postArray
             self.hubCollectionView.reloadData()
         }
         refreshControl.endRefreshing()
@@ -116,6 +120,19 @@ class HubViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: finalGroup)
         
         return UICollectionViewCompositionalLayout(section: section)
+    }
+    
+}
+extension HubViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = hubCollectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! PostCollectionViewCell
+        cell.set(post: posts[indexPath.row])
+        
+        return cell
     }
     
 }

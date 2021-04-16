@@ -75,6 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     print("success in uploading google prof pic")
                     DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
                         print("success signing in")
+                        // Post notification after user successfully sign in
+                        NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
                     }
                 }
             }
@@ -88,12 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     print("success in uploading prof pic")
                     DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
                         print("success signing in")
+                        // Post notification after user successfully sign in
+                        NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
                     }
                 }
             }
 
-            // Post notification after user successfully sign in
-            NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
+            
             }
     }
     

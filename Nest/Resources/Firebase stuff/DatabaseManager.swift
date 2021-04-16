@@ -71,7 +71,7 @@ public class DatabaseManager {
         let refToUser = userDatabase.child(uid)
         
         let currentUser = UserProfile.currentUserProfile
-        let newUserObj = ["firstName": currentUser?.firstName, "lastName": currentUser?.lastName, "uid": currentUser?.uid, "profilePhotoUrl": currentUser?.profilePhotoUrl.absoluteString, "bio": currentUser?.bio, "points": currentUser?.points ?? 0, "challenges": currentUser?.personalChallenges ?? [0,1,2], "numberArray": currentUser?.randomNumArray ?? [0,1,2,3,4]] as [String : Any]
+        let newUserObj = ["firstName": currentUser?.firstName, "lastName": currentUser?.lastName, "uid": currentUser?.uid, "profilePhotoUrl": currentUser?.profilePhotoUrl.absoluteString, "bio": currentUser?.bio ?? "bio", "points": currentUser?.points ?? 0, "challenges": currentUser?.personalChallenges ?? [0,1,2], "numberArray": currentUser?.randomNumArray ?? [0,1,2,3,4]] as [String : Any]
         
         refToUser.updateChildValues(newUserObj)
     }

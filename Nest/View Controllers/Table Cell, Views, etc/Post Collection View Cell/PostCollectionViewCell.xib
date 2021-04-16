@@ -62,9 +62,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-aW-pZX">
+                                        <rect key="frame" x="352" y="28" width="28" height="28"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Yod-aW-pZX" secondAttribute="height" id="KUy-jR-DtR"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="-"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Igp-ck-XMO" firstAttribute="leading" secondItem="hCG-SX-Xoc" secondAttribute="trailing" constant="10" id="3if-0H-58e"/>
+                                    <constraint firstItem="Yod-aW-pZX" firstAttribute="width" secondItem="Y3d-dv-WCH" secondAttribute="width" multiplier="0.07" id="Flu-rg-Vy7"/>
+                                    <constraint firstItem="Yod-aW-pZX" firstAttribute="top" secondItem="Vc7-yJ-qvY" secondAttribute="bottom" constant="10" id="J68-AQ-mb1"/>
                                     <constraint firstAttribute="trailing" secondItem="Vc7-yJ-qvY" secondAttribute="trailing" constant="10" id="NPS-Hw-MlL"/>
                                     <constraint firstItem="Vc7-yJ-qvY" firstAttribute="top" secondItem="Y3d-dv-WCH" secondAttribute="top" constant="2" id="OQl-Yg-pYq"/>
                                     <constraint firstItem="hCG-SX-Xoc" firstAttribute="leading" secondItem="Y3d-dv-WCH" secondAttribute="leading" constant="10" id="PC5-nz-ccl"/>
@@ -72,6 +83,7 @@
                                     <constraint firstItem="cDL-kV-Z1x" firstAttribute="leading" secondItem="Igp-ck-XMO" secondAttribute="leading" id="PPz-QS-U1J"/>
                                     <constraint firstItem="Igp-ck-XMO" firstAttribute="top" secondItem="hCG-SX-Xoc" secondAttribute="top" id="Vmj-tD-ev8"/>
                                     <constraint firstItem="qvL-cO-8px" firstAttribute="top" secondItem="cDL-kV-Z1x" secondAttribute="bottom" constant="7" id="ZKL-Fx-pzZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yod-aW-pZX" secondAttribute="trailing" constant="20" id="h7T-gT-C6L"/>
                                     <constraint firstItem="cDL-kV-Z1x" firstAttribute="top" secondItem="Igp-ck-XMO" secondAttribute="bottom" id="idp-I1-9mH"/>
                                     <constraint firstAttribute="trailing" secondItem="Igp-ck-XMO" secondAttribute="trailing" constant="10" id="mpP-i1-eqX"/>
                                     <constraint firstAttribute="trailing" secondItem="cDL-kV-Z1x" secondAttribute="trailing" constant="10" id="v6b-58-hcd"/>
@@ -106,6 +118,7 @@
             <size key="customSize" width="273" height="306"/>
             <connections>
                 <outlet property="contentLabel" destination="qvL-cO-8px" id="UnE-BA-Ubv"/>
+                <outlet property="deleteButton" destination="Yod-aW-pZX" id="Ewg-ie-Cdh"/>
                 <outlet property="hashtagLabel" destination="Vc7-yJ-qvY" id="B62-g7-aGj"/>
                 <outlet property="mainView" destination="C2C-0B-vwG" id="cIz-Kx-Y15"/>
                 <outlet property="overallImageView" destination="DYG-xn-Kk5" id="bcg-fk-pCh"/>
@@ -120,6 +133,9 @@
         <image name="loading" width="467" height="333.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

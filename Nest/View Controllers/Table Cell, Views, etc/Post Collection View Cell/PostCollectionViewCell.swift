@@ -16,6 +16,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var overallImageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var hashtagLabel: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

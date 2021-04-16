@@ -34,6 +34,7 @@ public class StorageManager {
         
         uploadProfilePhoto(data! as Data) { (imageUrl) in
             if imageUrl != nil {
+                print(imageUrl)
                 completion(imageUrl)
             }
             else {

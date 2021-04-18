@@ -161,6 +161,27 @@ public class DatabaseManager {
         
     }
     
+    
+    //delete a post in firebase
+    public func deletePost(post: Post, completion: @escaping (_ succes: Bool)->()){
+        let postId = post.id
+        let deleteRef = postDatabase.child(postId)
+        
+        StorageManager.shared.deletePostImge(key: postId) { (success) in
+            if success {
+                deleteRef.removeValue { (error, ref) in
+                    if error == nil {
+                        print("yayaaa")
+                        completion(true)
+                    }
+                    else {
+                        completion(false)
+                    }
+                }
+            }
+        }
+    }
+    
     //return a simple user profile to be used
     public func getUserProfileFromUid(uid: String, completion: @escaping (_ userProfile: OutsideUserProfile)->()){
         userDatabase.child(uid).observeSingleEvent(of: .value) { (snapshot) in
@@ -183,6 +204,10 @@ public class DatabaseManager {
     //returns array of posts organized by time
     public func arrayOfPostByTime(completion: @escaping (_ posts: [Post])->()){
         queryPostsByTime.observeSingleEvent(of: .value) { (snapshot) in
+            
+            if snapshot.childrenCount == 0 {
+                return completion([])
+            }
             print("in query")
             var posts = [Post]()
             var numOfChildThroughFor = 0
@@ -216,12 +241,17 @@ public class DatabaseManager {
     //returns array of posts by user
     public func arrayOfPostsByUser(completion: @escaping (_ posts: [Post])->()){
         queryUserPosts.observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot)
+            if snapshot.childrenCount == 0 {
+                return completion([])
+            }
+            print("fda\(snapshot)")
             print("in query")
             var userPosts = [Post]()
             var numOfChildThroughFor = 0
             for child in snapshot.children {
+                print("inside for child")
                 if let childSnapshot = child as? DataSnapshot {
+                    print("inside if childSnapshot")
                     if let data = childSnapshot.value as? [String: Any]{
                         print("hereee")
                         print(data)
@@ -232,6 +262,7 @@ public class DatabaseManager {
                             if numOfChildThroughFor == snapshot.childrenCount {
                                 return completion(userPosts)
                             }
+                            
                         }
                     }
                 }

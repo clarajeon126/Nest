@@ -14,12 +14,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userPostsCollectionView: UICollectionView!
+    @IBOutlet weak var noUserPostMessage: UIView!
     
     var userPosts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(reloadDataForCollection(_:)),
+                                                   name: .reloadProfileView,
+                                                   object: nil)
         //rounded corners
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         
@@ -44,11 +49,25 @@ class ProfileViewController: UIViewController {
         userPostsCollectionView.delegate = self
         userPostsCollectionView.collectionViewLayout = ProfileViewController.createLayout()
         
+        updatePostsAndReload()
+    }
+    
+    func updatePostsAndReload(){
         DatabaseManager.shared.arrayOfPostsByUser { (posts) in
+            if posts.count == 0 {
+                self.noUserPostMessage.isHidden = false
+            }
+            print("inside getting array of posts")
             self.userPosts = posts
             self.userPostsCollectionView.reloadData()
         }
     }
+    @objc private func reloadDataForCollection(_ notification: Notification) {
+        // Update screen after user successfully signed in
+        print("inside notif")
+        updatePostsAndReload()
+    }
+
     
     //layout for collection view looks veryyyy cool
     static func createLayout() -> UICollectionViewCompositionalLayout {
@@ -92,7 +111,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = userPostsCollectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! PostCollectionViewCell
-        cell.set(post: userPosts[indexPath.row])
+        cell.set(post: userPosts[indexPath.row], isUsers: true)
         
         return cell
     }

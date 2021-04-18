@@ -18,19 +18,30 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var hashtagLabel: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
+    weak var post: Post?
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        print("delete button on \(userNameLabel.text)'s post was pressed")
+        DatabaseManager.shared.deletePost(post: post!) { (success) in
+            if success {
+                NotificationCenter.default.post(name: .reloadProfileView, object: nil)
+            }
+        }
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         profilePicImageView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
         mainView.layer.cornerRadius = 15
+        deleteButton.layer.cornerRadius = 15
     }
-    
-    weak var post: Post?
     
     
     //set values in the post cell
-    func set(post: Post){
+    func set(post: Post, isUsers: Bool){
         self.post = post
         
         if !post.isAnonymous {
@@ -49,7 +60,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         else {
             self.profilePicImageView.image = #imageLiteral(resourceName: "blankprofilepic")
-            self.userNameLabel.text = "Anonymous User"
+            self.userNameLabel.text = "User"
         }
         
         
@@ -66,6 +77,10 @@ class PostCollectionViewCell: UICollectionViewCell {
             }
         }
         
+        //showing the delete button if it is the user's post
+        if isUsers {
+            deleteButton.isHidden = false
+        }
         
         
         //setting text

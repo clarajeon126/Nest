@@ -45,7 +45,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Igp-ck-XMO">
-                                        <rect key="frame" x="60" y="18" width="330" height="24"/>
+                                        <rect key="frame" x="60" y="18" width="290" height="24"/>
                                         <fontDescription key="fontDescription" name="Hero-Light" family="Hero" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -63,18 +63,23 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-aW-pZX">
-                                        <rect key="frame" x="352" y="28" width="28" height="28"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <rect key="frame" x="360" y="28" width="30" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.47353031206513407" blue="0.40008583198788206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Yod-aW-pZX" secondAttribute="height" id="KUy-jR-DtR"/>
+                                            <constraint firstAttribute="height" constant="30" id="tgI-fo-Vo1"/>
+                                            <constraint firstAttribute="width" constant="30" id="vC7-l2-5Jb"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="deleteButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="inX-J4-hBx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Yod-aW-pZX" firstAttribute="leading" secondItem="Igp-ck-XMO" secondAttribute="trailing" constant="10" id="1Q5-wn-iDu"/>
                                     <constraint firstItem="Igp-ck-XMO" firstAttribute="leading" secondItem="hCG-SX-Xoc" secondAttribute="trailing" constant="10" id="3if-0H-58e"/>
-                                    <constraint firstItem="Yod-aW-pZX" firstAttribute="width" secondItem="Y3d-dv-WCH" secondAttribute="width" multiplier="0.07" id="Flu-rg-Vy7"/>
                                     <constraint firstItem="Yod-aW-pZX" firstAttribute="top" secondItem="Vc7-yJ-qvY" secondAttribute="bottom" constant="10" id="J68-AQ-mb1"/>
                                     <constraint firstAttribute="trailing" secondItem="Vc7-yJ-qvY" secondAttribute="trailing" constant="10" id="NPS-Hw-MlL"/>
                                     <constraint firstItem="Vc7-yJ-qvY" firstAttribute="top" secondItem="Y3d-dv-WCH" secondAttribute="top" constant="2" id="OQl-Yg-pYq"/>
@@ -83,9 +88,8 @@
                                     <constraint firstItem="cDL-kV-Z1x" firstAttribute="leading" secondItem="Igp-ck-XMO" secondAttribute="leading" id="PPz-QS-U1J"/>
                                     <constraint firstItem="Igp-ck-XMO" firstAttribute="top" secondItem="hCG-SX-Xoc" secondAttribute="top" id="Vmj-tD-ev8"/>
                                     <constraint firstItem="qvL-cO-8px" firstAttribute="top" secondItem="cDL-kV-Z1x" secondAttribute="bottom" constant="7" id="ZKL-Fx-pzZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yod-aW-pZX" secondAttribute="trailing" constant="20" id="h7T-gT-C6L"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yod-aW-pZX" secondAttribute="trailing" constant="10" id="h7T-gT-C6L"/>
                                     <constraint firstItem="cDL-kV-Z1x" firstAttribute="top" secondItem="Igp-ck-XMO" secondAttribute="bottom" id="idp-I1-9mH"/>
-                                    <constraint firstAttribute="trailing" secondItem="Igp-ck-XMO" secondAttribute="trailing" constant="10" id="mpP-i1-eqX"/>
                                     <constraint firstAttribute="trailing" secondItem="cDL-kV-Z1x" secondAttribute="trailing" constant="10" id="v6b-58-hcd"/>
                                     <constraint firstItem="qvL-cO-8px" firstAttribute="leading" secondItem="Y3d-dv-WCH" secondAttribute="leading" constant="10" id="wJr-4X-xel"/>
                                     <constraint firstItem="hCG-SX-Xoc" firstAttribute="top" secondItem="Vc7-yJ-qvY" secondAttribute="bottom" id="wll-FE-12T"/>
@@ -133,9 +137,6 @@
         <image name="loading" width="467" height="333.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -92,3 +92,12 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+//to send a notification in system if the user signed in
+extension Notification.Name {
+    static var signInGoogleCompleted: Notification.Name {
+        return .init(rawValue: #function)
+    }
+    
+    static let reloadProfileView = Notification.Name("reloadProfileView")
+}

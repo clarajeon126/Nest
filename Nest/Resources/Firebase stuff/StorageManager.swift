@@ -109,4 +109,14 @@ public class StorageManager {
             }
         }
     }
+    
+    public func deletePostImge(key: String, completion: @escaping (_ success: Bool)->()){
+        let imageRef = storage.child("PostPhotos").child(key)
+        
+        imageRef.delete { (error) in
+            if error == nil {
+                completion(true)
+            }
+        }
+    }
 }

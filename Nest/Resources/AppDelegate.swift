@@ -122,9 +122,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 }
 
-//to send a notification in system if the user signed in
-extension Notification.Name {
-    static var signInGoogleCompleted: Notification.Name {
-        return .init(rawValue: #function)
-    }
-}
+

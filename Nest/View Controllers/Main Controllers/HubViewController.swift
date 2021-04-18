@@ -12,11 +12,20 @@ class HubViewController: UIViewController {
     @IBOutlet weak var hubCollectionView: UICollectionView!
     
     var refreshControl: UIRefreshControl!
+    @IBOutlet weak var noPostsMessage: UIView!
     
     var posts = [Post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //rounded corners
+        noPostsMessage.layer.cornerRadius = 15
+        
+        NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(reloadCollectionViewNotif(_:)),
+                                                   name: .reloadProfileView,
+                                                   object: nil)
         
         hubCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "postCell")
         hubCollectionView.dataSource = self
@@ -37,18 +46,29 @@ class HubViewController: UIViewController {
     }
     
     
+    @objc private func reloadCollectionViewNotif(_ notification: Notification) {
+        // Update screen after user successfully signed in
+        print("inside notif")
+        arrayUpdateAndReload()
+    }
+    
     //refresh the data and update collection view data
     @objc func reloadCollectionViewData(){
         print("here")
-        DatabaseManager.shared.arrayOfPostByTime { (postArray) in
-            print(postArray)
-            self.posts = postArray
-            self.hubCollectionView.reloadData()
-        }
+        arrayUpdateAndReload()
         refreshControl.endRefreshing()
     }
 
-
+    func arrayUpdateAndReload(){
+        DatabaseManager.shared.arrayOfPostByTime { (postArray) in
+            print(postArray)
+            if postArray.count == 0 {
+                self.noPostsMessage.isHidden = false
+            }
+            self.posts = postArray
+            self.hubCollectionView.reloadData()
+        }
+    }
     
     //layout for collection view looks veryyyy cool
     static func createLayout() -> UICollectionViewCompositionalLayout {
@@ -130,7 +150,21 @@ extension HubViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = hubCollectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! PostCollectionViewCell
-        cell.set(post: posts[indexPath.row])
+        let postInQuestion = posts[indexPath.row]
+        
+        let postAuthor = postInQuestion.author
+        
+        let userUid = UserProfile.currentUserProfile?.uid
+        
+        let isUsersPost = postAuthor == userUid
+        
+        if isUsersPost {
+            cell.set(post: postInQuestion, isUsers: true)
+        }
+        else {
+            cell.set(post: postInQuestion, isUsers: false)
+        }
+        
         
         return cell
     }

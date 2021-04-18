@@ -270,5 +270,21 @@ public class DatabaseManager {
         }
     }
     
+    public func insertFeedback(feedback: String ,completion: @escaping (_ success: Bool)->()){
+        
+        let ref = database.child("feedback").childByAutoId()
+        
+        let feedbackObj = ["feedback": feedback, "timestamp": [".sv":"timestamp"]] as [String: Any]
+        
+        ref.setValue(feedbackObj) { (error, ref) in
+            if error == nil {
+                completion(true)
+            }
+            else {
+                completion(false)
+            }
+        }
+    }
+    
     
 }

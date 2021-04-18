@@ -31,7 +31,7 @@ class successViewController: UIViewController {
         
         //adding the points to firebase data, updating the array wiht challenges, and updating info on firebase
         print("number in personal challenge that was completed: \(numInPersonalChallengeArray)")
-        UserProfile.currentUserProfile?.points += 10
+        UserProfile.currentUserProfile?.points += challengeInQuestion.point
         UserProfile.currentUserProfile?.replaceASingleChallenge(index: numInPersonalChallengeArray)
         DatabaseManager.shared.reloadCurrentUserData()
     }

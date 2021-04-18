@@ -59,45 +59,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print("Error occurs when authenticate with Firebase: \(error.localizedDescription)")
             }
             
-            //storing profile in database passing info to a func in Database Manager
-            let firstName = user.profile.givenName ?? "firstName"
-            let lastName = user.profile.familyName ?? "lastName"
-            let profilePhotoImage = GIDSignIn.sharedInstance()?.currentUser.profile.hasImage
+            let isNewUser = authResult?.additionalUserInfo?.isNewUser
             
-            var profilePhotoUrl: URL?
-            
-            //when user has a google profile image
-            if (profilePhotoImage ?? false){
-                let googleProfilePhotoUrl = GIDSignIn.sharedInstance()?.currentUser.profile.imageURL(withDimension: 400)?.absoluteString
+            if isNewUser ?? false {
+                //storing profile in database passing info to a func in Database Manager
+                let firstName = user.profile.givenName ?? "firstName"
+                let lastName = user.profile.familyName ?? "lastName"
+                let profilePhotoImage = GIDSignIn.sharedInstance()?.currentUser.profile.hasImage
                 
-                StorageManager.shared.uploadGoogleUrlProfilePhoto(googleProfilePhotoUrl!) { (url) in
-                    profilePhotoUrl = url
-                    print("success in uploading google prof pic")
-                    DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
-                        print("success signing in")
-                        // Post notification after user successfully sign in
-                        NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
+                var profilePhotoUrl: URL?
+                
+                //when user has a google profile image
+                if (profilePhotoImage ?? false){
+                    let googleProfilePhotoUrl = GIDSignIn.sharedInstance()?.currentUser.profile.imageURL(withDimension: 400)?.absoluteString
+                    
+                    StorageManager.shared.uploadGoogleUrlProfilePhoto(googleProfilePhotoUrl!) { (url) in
+                        profilePhotoUrl = url
+                        print("success in uploading google prof pic")
+                        DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
+                            print("success signing in")
+                            // Post notification after user successfully sign in
+                            NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
+                        }
+                    }
+                }
+                
+                //when user does not have google profile image, set profile pic to a default one
+                else {
+                    let defaultProfilePhoto = #imageLiteral(resourceName: "blankprofilepic")
+                    
+                    StorageManager.shared.uploadGeneralProfilePhoto(defaultProfilePhoto) { (url) in
+                        profilePhotoUrl = url
+                        print("success in uploading prof pic")
+                        DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
+                            print("success signing in")
+                            // Post notification after user successfully sign in
+                            NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
+                        }
                     }
                 }
             }
-            
-            //when user does not have google profile image, set profile pic to a default one
             else {
-                let defaultProfilePhoto = #imageLiteral(resourceName: "blankprofilepic")
-                
-                StorageManager.shared.uploadGeneralProfilePhoto(defaultProfilePhoto) { (url) in
-                    profilePhotoUrl = url
-                    print("success in uploading prof pic")
-                    DatabaseManager.shared.insertNewUser(firstName: firstName, lastName: lastName, profilePhotoUrl: profilePhotoUrl!) { (success) in
-                        print("success signing in")
-                        // Post notification after user successfully sign in
-                        NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
-                    }
-                }
+                NotificationCenter.default.post(name: .signInGoogleCompleted, object: nil)
             }
-
             
-            }
+        }
     }
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])

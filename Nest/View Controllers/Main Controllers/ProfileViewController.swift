@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController {
                                                    object: nil)
         //rounded corners
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        noUserPostMessage.layer.cornerRadius = 15
         
         //setting current user as the current user profile
         guard let currentUser = UserProfile.currentUserProfile else {

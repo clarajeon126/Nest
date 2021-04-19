@@ -104,7 +104,9 @@ public class DatabaseManager {
     
     //return challenges array from firebase
     public func returnChallengeArray(completion: @escaping (_ challenges: [Challenge])->()){
+        print("outside observe single event")
         challengeDatabse.observeSingleEvent(of: .value) { (snapshot) in
+            print("inside observe single event \(snapshot)")
             var challenges = [Challenge]()
             var numOfChildThroughFor = 0
             for child in snapshot.children {
@@ -282,6 +284,49 @@ public class DatabaseManager {
             }
             else {
                 completion(false)
+            }
+        }
+    }
+    
+    
+    //getting hashtag posts
+    public func arrayOfPostsByHashtag(hashtag: String, completion: @escaping (_ post:[Post])->()){
+        print("this is the hashtag in question \(hashtag)")
+        print("here in array of posts by hashtag")
+        //query posts of this hashtag
+        var queryHashtag:  DatabaseQuery {
+            var postsQueryRef: DatabaseQuery
+            
+            postsQueryRef = postDatabase.queryOrdered(byChild: "hashtag").queryEqual(toValue: hashtag)
+            
+            print(postsQueryRef)
+            return postsQueryRef
+        }
+        
+        queryHashtag.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.childrenCount == 0 {
+                return completion([])
+            }
+            print("in query")
+            var hashtagPosts = [Post]()
+            var numOfChildThroughFor = 0
+            for child in snapshot.children {
+                print("inside for child")
+                if let childSnapshot = child as? DataSnapshot {
+                    print("inside if childSnapshot")
+                    if let data = childSnapshot.value as? [String: Any]{
+                        print("hereee")
+                        print(data)
+                        Post.parse(childSnapshot.key, data) { (post) in
+                            print("parse\(numOfChildThroughFor)")
+                            numOfChildThroughFor += 1
+                            hashtagPosts.insert(post, at: 0)
+                            if numOfChildThroughFor == snapshot.childrenCount {
+                                return completion(hashtagPosts)
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ class MLServices {
     // convert A image to cv Pixel Buffer with 224*224 so it can process through ml model
     static func convertImage(image: UIImage) -> CVPixelBuffer? {
         
-        let newSize = CGSize(width: 224.0, height: 224.0)
+        let newSize = CGSize(width: 299.0, height: 299.0)
         UIGraphicsBeginImageContext(newSize)
         image.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
         

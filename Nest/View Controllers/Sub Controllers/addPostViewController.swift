@@ -16,7 +16,7 @@ class addPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //image picker + Machine Learning stuff
     var imagePicker: UIImagePickerController!
-    let mobileNet = MobileNetV2()
+    let mobileNet = NestImageClassifier1()
     
     //when change image button is tapped
     @IBAction func changeImageButtonTapped(_ sender: Any) {

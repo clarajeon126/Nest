@@ -55,7 +55,7 @@ class CheckWorkViewController: UIViewController, UIImagePickerControllerDelegate
     
     //image picker + Machine Learning stuff
     var imagePicker: UIImagePickerController!
-    let mobileNet = MobileNetV2()
+    let mobileNet = NestImageClassifier1()
     
     //submit button tapped should prompt a image picker
     @IBAction func picToSubmit(_ sender: Any) {
@@ -145,6 +145,11 @@ class CheckWorkViewController: UIViewController, UIImagePickerControllerDelegate
             let destination = segue.destination as! oopsViewController
             destination.challengeInQuestion = self.challengeInQuestion
             destination.numInPersonalChallengeArray = self.numInPersonalChallengeArray
+        }
+        
+        else if segue.identifier == "challengeToHashtag" {
+            let destination = segue.destination as! hashtagViewController
+            destination.hashtag = self.challengeInQuestion.hashtag
         }
     }
 }

@@ -17,7 +17,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var noUserPostMessage: UIView!
     
     var userPosts = [Post]()
-    
+    var hashtagRecent = "error"
+    @IBAction func aboutButtonPressed(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +45,14 @@ class ProfileViewController: UIViewController {
         userNameLabel.text = "\(currentUser.firstName) \(currentUser.lastName)"
         
         pointLabel.text = "\(currentUser.points) points"
-        bioLabel.text = currentUser.bio
+        
+        if currentUser.bio == "empty" {
+            bioLabel.text = "edit your bio!!"
+        }
+        else {
+            bioLabel.text = currentUser.bio
+        }
+        
         
         //setting collection view stuff
         userPostsCollectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "postCell")
@@ -92,16 +102,12 @@ class ProfileViewController: UIViewController {
         
         return UICollectionViewCompositionalLayout(section: section)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "profileToHashtag"{
+            let destination = segue.destination as! hashtagViewController
+            destination.hashtag = self.hashtagRecent
+        }
     }
-    */
 
 }
 
@@ -113,6 +119,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = userPostsCollectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! PostCollectionViewCell
         cell.set(post: userPosts[indexPath.row], isUsers: true)
+        
+        cell.addButtonTapAction = {
+                    self.hashtagRecent = cell.post?.hashtag ?? "error"
+                    self.performSegue(withIdentifier: "profileToHashtag", sender: self)
+                }
         
         return cell
     }

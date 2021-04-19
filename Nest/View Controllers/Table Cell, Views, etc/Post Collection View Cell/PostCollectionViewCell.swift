@@ -15,10 +15,12 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var overallImageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var hashtagLabel: UIButton!
+    @IBOutlet weak var hashtagButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
     weak var post: Post?
+    
+    var addButtonTapAction : (()->())?
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
         print("delete button on \(userNameLabel.text)'s post was pressed")
@@ -29,14 +31,20 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    @IBAction func hashtagButtonTapped(_ sender: Any) {
+        print("hashtag button was tapped")
+        addButtonTapAction?()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
         profilePicImageView.layer.cornerRadius = 20
         mainView.clipsToBounds = true
         mainView.layer.cornerRadius = 15
         deleteButton.layer.cornerRadius = 15
+        hashtagButton.layer.cornerRadius = 7
     }
     
     
@@ -84,12 +92,11 @@ class PostCollectionViewCell: UICollectionViewCell {
         
         
         //setting text
-        hashtagLabel.setTitle("#\(post.hashtag)", for: .normal)
+        hashtagButton.setTitle("#\(post.hashtag)", for: .normal)
         contentLabel.text = post.postCaption
         
         //setting time
         timeLabel.text = post.createdAt.calenderTimeSinceNow()
         
     }
-
 }

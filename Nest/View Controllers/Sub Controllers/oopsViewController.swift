@@ -32,7 +32,7 @@ class oopsViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     //image picker + Machine Learning stuff
     var imagePicker: UIImagePickerController!
-    let mobileNet = MobileNetV2()
+    let mobileNet = NestImageClassifier1()
     
     //submit button tapped should prompt a image picker
     @IBAction func picToSubmit(_ sender: Any) {

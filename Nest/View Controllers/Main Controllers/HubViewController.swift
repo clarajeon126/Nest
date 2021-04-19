@@ -16,6 +16,7 @@ class HubViewController: UIViewController {
     
     var posts = [Post]()
     
+    var hashtagRecent = "error"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -142,6 +143,13 @@ class HubViewController: UIViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "hubToHashtag"{
+            let destination = segue.destination as! hashtagViewController
+            destination.hashtag = self.hashtagRecent
+        }
+    }
+    
 }
 extension HubViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -165,6 +173,10 @@ extension HubViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             cell.set(post: postInQuestion, isUsers: false)
         }
         
+        cell.addButtonTapAction = {
+                    self.hashtagRecent = cell.post?.hashtag ?? "error"
+                    self.performSegue(withIdentifier: "hubToHashtag", sender: self)
+                }
         
         return cell
     }

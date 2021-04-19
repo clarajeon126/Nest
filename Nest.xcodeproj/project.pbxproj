@@ -22,11 +22,14 @@
 		855F7FE025D1F6AF0082A181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855F7FDF25D1F6AF0082A181 /* Assets.xcassets */; };
 		855F7FE325D1F6AF0082A181 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855F7FE125D1F6AF0082A181 /* LaunchScreen.storyboard */; };
 		857C8ED1262C772E003B1805 /* feedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C8ED0262C772E003B1805 /* feedbackViewController.swift */; };
+		857C8ED5262C9A5E003B1805 /* hashtagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C8ED4262C9A5E003B1805 /* hashtagViewController.swift */; };
 		857FAEC1261E9088001BDCAF /* addPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857FAEC0261E9088001BDCAF /* addPostViewController.swift */; };
 		857FAEC3261EBF27001BDCAF /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857FAEC2261EBF27001BDCAF /* GlobalVariables.swift */; };
 		857FAEC8261EC3CD001BDCAF /* Hero-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 857FAEC5261EC3CC001BDCAF /* Hero-Bold.ttf */; };
 		857FAEC9261EC3CD001BDCAF /* Hero-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 857FAEC6261EC3CC001BDCAF /* Hero-Regular.ttf */; };
 		857FAECA261EC3CD001BDCAF /* Hero-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 857FAEC7261EC3CC001BDCAF /* Hero-Light.ttf */; };
+		85AD399B262D1FDE00ACEEF4 /* NestImageClassifier1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 85AD399A262D1FDE00ACEEF4 /* NestImageClassifier1.mlmodel */; };
+		85AD399D262D2BFE00ACEEF4 /* aboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AD399C262D2BFE00ACEEF4 /* aboutViewController.swift */; };
 		85BDE27725D22CBE0028BD49 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27625D22CBE0028BD49 /* DatabaseManager.swift */; };
 		85BDE27B25D22D8C0028BD49 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27A25D22D8C0028BD49 /* UserProfile.swift */; };
 		85BDE27D25D233110028BD49 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BDE27C25D233110028BD49 /* StorageManager.swift */; };
@@ -35,7 +38,6 @@
 		85CA828125D1F8D800C458C1 /* Pods_Nest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05344EA03AE90A91A3723AE8 /* Pods_Nest.framework */; };
 		85CA828225D1F8D800C458C1 /* Pods_Nest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05344EA03AE90A91A3723AE8 /* Pods_Nest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85CA829E25D1F97F00C458C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85CA829D25D1F97F00C458C1 /* GoogleService-Info.plist */; };
-		85CA82A125D1FA0F00C458C1 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82A025D1FA0F00C458C1 /* MobileNetV2.mlmodel */; };
 		85CA82A925D1FA5600C458C1 /* challengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85CA82A625D1FA5600C458C1 /* challengeCell.xib */; };
 		85CA82AA25D1FA5600C458C1 /* challengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82A725D1FA5600C458C1 /* challengeCell.swift */; };
 		85CA82B025D1FA5F00C458C1 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA82AE25D1FA5F00C458C1 /* Challenge.swift */; };
@@ -80,18 +82,20 @@
 		855F7FE225D1F6AF0082A181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		855F7FE425D1F6AF0082A181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		857C8ED0262C772E003B1805 /* feedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedbackViewController.swift; sourceTree = "<group>"; };
+		857C8ED4262C9A5E003B1805 /* hashtagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hashtagViewController.swift; sourceTree = "<group>"; };
 		857FAEC0261E9088001BDCAF /* addPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPostViewController.swift; sourceTree = "<group>"; };
 		857FAEC2261EBF27001BDCAF /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		857FAEC5261EC3CC001BDCAF /* Hero-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero-Bold.ttf"; sourceTree = "<group>"; };
 		857FAEC6261EC3CC001BDCAF /* Hero-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero-Regular.ttf"; sourceTree = "<group>"; };
 		857FAEC7261EC3CC001BDCAF /* Hero-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hero-Light.ttf"; sourceTree = "<group>"; };
+		85AD399A262D1FDE00ACEEF4 /* NestImageClassifier1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = NestImageClassifier1.mlmodel; sourceTree = "<group>"; };
+		85AD399C262D2BFE00ACEEF4 /* aboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutViewController.swift; sourceTree = "<group>"; };
 		85BDE27625D22CBE0028BD49 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		85BDE27A25D22D8C0028BD49 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		85BDE27C25D233110028BD49 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		85BDE27E25D243B30028BD49 /* HubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubViewController.swift; sourceTree = "<group>"; };
 		85BDE29F25D24F750028BD49 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		85CA829D25D1F97F00C458C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		85CA82A025D1FA0F00C458C1 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		85CA82A625D1FA5600C458C1 /* challengeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = challengeCell.xib; sourceTree = "<group>"; };
 		85CA82A725D1FA5600C458C1 /* challengeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = challengeCell.swift; sourceTree = "<group>"; };
 		85CA82AE25D1FA5F00C458C1 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -202,7 +206,7 @@
 				8529225E25FBC9820017B38B /* Services */,
 				855F7FD625D1F6AC0082A181 /* AppDelegate.swift */,
 				855F7FD825D1F6AC0082A181 /* SceneDelegate.swift */,
-				85CA82A025D1FA0F00C458C1 /* MobileNetV2.mlmodel */,
+				85AD399A262D1FDE00ACEEF4 /* NestImageClassifier1.mlmodel */,
 				857FAEA6261E8C01001BDCAF /* Firebase stuff */,
 				850D247725E4139A008D317F /* Extensions.swift */,
 				857FAEC2261EBF27001BDCAF /* GlobalVariables.swift */,
@@ -296,6 +300,8 @@
 				85175D9226225DA900BFFAF6 /* successViewController.swift */,
 				85403DEB262BEA9500676CEA /* settingViewController.swift */,
 				857C8ED0262C772E003B1805 /* feedbackViewController.swift */,
+				857C8ED4262C9A5E003B1805 /* hashtagViewController.swift */,
+				85AD399C262D2BFE00ACEEF4 /* aboutViewController.swift */,
 			);
 			path = "Sub Controllers";
 			sourceTree = "<group>";
@@ -458,18 +464,20 @@
 				85CA82B825D1FB3100C458C1 /* CheckWorkViewController.swift in Sources */,
 				85175D9326225DA900BFFAF6 /* successViewController.swift in Sources */,
 				857C8ED1262C772E003B1805 /* feedbackViewController.swift in Sources */,
+				85AD399D262D2BFE00ACEEF4 /* aboutViewController.swift in Sources */,
 				85CA82B725D1FB3100C458C1 /* ProfileViewController.swift in Sources */,
 				8529226025FBC9950017B38B /* ImageServices.swift in Sources */,
 				85CA82AA25D1FA5600C458C1 /* challengeCell.swift in Sources */,
 				855F7FD725D1F6AC0082A181 /* AppDelegate.swift in Sources */,
+				857C8ED5262C9A5E003B1805 /* hashtagViewController.swift in Sources */,
 				85CA82B625D1FB3100C458C1 /* HomeViewController.swift in Sources */,
 				857FAEC1261E9088001BDCAF /* addPostViewController.swift in Sources */,
-				85CA82A125D1FA0F00C458C1 /* MobileNetV2.mlmodel in Sources */,
 				853060A62627CBD100208499 /* MLServices.swift in Sources */,
 				85403DEC262BEA9500676CEA /* settingViewController.swift in Sources */,
 				855F7FD925D1F6AC0082A181 /* SceneDelegate.swift in Sources */,
 				85CA82BB25D1FB8900C458C1 /* LoginViewController.swift in Sources */,
 				850D247825E4139A008D317F /* Extensions.swift in Sources */,
+				85AD399B262D1FDE00ACEEF4 /* NestImageClassifier1.mlmodel in Sources */,
 				85BDE27D25D233110028BD49 /* StorageManager.swift in Sources */,
 				857FAEC3261EBF27001BDCAF /* GlobalVariables.swift in Sources */,
 				85BDE2A025D24F750028BD49 /* Post.swift in Sources */,
